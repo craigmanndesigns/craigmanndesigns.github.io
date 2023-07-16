@@ -4,14 +4,17 @@ import { storyblokEditable, StoryblokComponent } from "gatsby-source-storyblok";
 import clsx from "clsx";
 
 const ListItem = ({ blok, sectionTheme }) => {
-  const [url, setURL] = useState(blok.link.cached_url);
+  const [url, setURL] = useState("/" + blok.link.cached_url);
   const [anchorUrl, setAnchorUrl] = useState("");
 
   useEffect(() => {
     if (blok.link.anchor) {
       // setAnchorURL(url.substring(0, url.length - 1));
       setAnchorUrl("#" + blok.link.anchor);
+    } else {
+      setAnchorUrl(blok.link.cached_url);
     }
+    console.log(blok.link.cached_url);
   }, []);
 
   return (

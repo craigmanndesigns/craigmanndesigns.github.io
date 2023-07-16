@@ -22,6 +22,10 @@
 html {
   scroll-behavior: smooth;
 }
+body.no-scroll {
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+}
 h1,
 h2,
 h3,
@@ -179,7 +183,8 @@ body:not(body:hover) .cursor::after {
   transform: translate3d(-0.5rem, -0.5rem, 0);
   transition: transform 0.3s ease-in-out;
 }
-a:hover .butt {
+a:hover .butt,
+button:hover .butt {
   transform: translate3d(0rem, 0rem, 0);
 }
 

@@ -25,8 +25,15 @@ const Navbar = ({ blok }) => {
     if (windowWidth >= 420) {
       setRenderMenu(true);
     }
-  }, []);
-
+  }, [windowWidth]);
+  useEffect(() => {
+    console.log(openMenu);
+    if (openMenu === true) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+  }, [openMenu]);
   const handleShowMenu = () => {
     setOpenMenu(!openMenu);
   };

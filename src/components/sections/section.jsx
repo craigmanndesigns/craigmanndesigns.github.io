@@ -73,7 +73,6 @@ const Section = ({ blok, mainContent }) => {
         className={clsx(
           "flex flex-col justify-center items-center w-full",
           height,
-          "first:rounded-none",
           "last:pb-20",
           isFullWidth,
           paddingY,

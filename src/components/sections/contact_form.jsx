@@ -1,12 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import clsx from "clsx";
 import { useForm } from "react-hook-form";
 import emailjs from "emailjs-com";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
-
-import Button from "../button";
-
+import { East, Send } from "@mui/icons-material";
 const ContactForm = ({ blok, sectionTheme }) => {
   const {
     register,
@@ -14,6 +12,17 @@ const ContactForm = ({ blok, sectionTheme }) => {
     reset,
     formState: { errors },
   } = useForm();
+  const [buttonStyle, setButtonStyle] = useState();
+  const [shadowStyle, setShadowStyle] = useState();
+
+  const [isHover, setIsHover] = useState(false);
+
+  useEffect(() => {
+    setButtonStyle(
+      "bg-white text-black border hover:bg-black hover:text-white hover:border-white"
+    );
+    setShadowStyle("bg-black border border-white");
+  }, []);
 
   // Function that displays a success toast on bottom right of the page when form submission is successful
   const toastifySuccess = () => {
@@ -57,11 +66,11 @@ const ContactForm = ({ blok, sectionTheme }) => {
 
   return (
     <div className={clsx("min-w-50")}>
-      <h2 className={clsx("mb-20")}>{blok.title}</h2>
+      <h2 className={clsx("my-20")}>{blok.title}</h2>
       <div>
         <form
           id="contact-form"
-          className={clsx("flex flex-col gap-8")}
+          className={clsx("flex flex-col gap-4 justify-center items-center")}
           onSubmit={handleSubmit(onSubmit)}
           noValidate
         >
@@ -96,7 +105,7 @@ const ContactForm = ({ blok, sectionTheme }) => {
                 pattern:
                   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
               })}
-              className="p-4  w-full"
+              className="p-4 w-full"
               placeholder="Email address"
             ></input>
             {errors.email && (
@@ -105,7 +114,7 @@ const ContactForm = ({ blok, sectionTheme }) => {
               </span>
             )}
           </div>
-          <div className={clsx("row formRow")}>
+          <div className={clsx("row formRow w-full")}>
             <div className={clsx("w-full")}>
               <input
                 type="text"
@@ -129,7 +138,7 @@ const ContactForm = ({ blok, sectionTheme }) => {
             </div>
           </div>
           {/* Row 3 of form */}
-          <div className={clsx("row formRow")}>
+          <div className={clsx("row formRow w-full mb-8")}>
             <div className="w-full">
               <textarea
                 rows={3}
@@ -146,16 +155,35 @@ const ContactForm = ({ blok, sectionTheme }) => {
             </div>
           </div>
 
-          <button
-            className={clsx(
-              "px-5 py-6",
-              sectionTheme === "light"
-                ? "bg-black text-white hover:bg-black80"
-                : "bg-white text-black border hover:bg-black hover:text-white hover:border-white"
-            )}
-            type="submit"
-          >
-            Submit
+          <button className={clsx("relative mb-4 w-full")} type="submit">
+            <span
+              className={clsx(
+                "flex items-center justify-center items-center uppercase",
+                "px-8 p-6 z-10",
+                "relative",
+                "butt",
+                buttonStyle
+              )}
+            >
+              Send it
+              <span
+                className={clsx(
+                  "ml-2 transition-transform",
+                  isHover ? "translate-x-1" : "translate-y-0"
+                )}
+              >
+                <Send />
+              </span>
+            </span>
+            <div
+              className={clsx(
+                "absolute inset-0 w-full h-full",
+                shadowStyle,
+
+                "transition-all",
+                "butt-shadow"
+              )}
+            />
           </button>
         </form>
       </div>
