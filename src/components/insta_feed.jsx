@@ -1,13 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
 import { storyblokEditable, StoryblokComponent } from "gatsby-source-storyblok";
 import clsx from "clsx";
-import configuration from "../../gatsby-config";
 import InstaGrid from "./insta_grid";
 
 const InstaFeed = ({ blok }) => {
   const [instaItems, setInstaItems] = useState([]);
 
-  const userId = "6348432841911010";
+  const userId = process.env.REACT_APP_INSTA_USER_ID;
+  console.log(userId);
   const accessToken =
     "IGQVJVMGliTXdpRUEyMUZAjNmhiXy1JRk5Xc0dBYm8tWkIxWVNwTzNUQ2dWVEVwYUE1ZAGZAndm9ZALWZAtMzkyMXJTcXhpRG9lLUtjbjFJN3gxNjhXVGk0T1pGTDRteExBX2FRemg5SmIzTzBaTTRLSzdhVAZDZD";
   const instaUrl = `https://graph.instagram.com/${userId}/media?access_token=${accessToken}`;

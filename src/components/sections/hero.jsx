@@ -27,6 +27,7 @@ const Hero = ({ blok, sectionTheme }) => {
       className={clsx(
         "text-center flex flex-col min-h-hero justify-center uppercase border w-full max-w-default",
         "max-sm:max-w-full",
+        "px-20",
         sectionTheme === "light" ? "border-black" : "border-white"
       )}
     >
@@ -63,7 +64,7 @@ const Hero = ({ blok, sectionTheme }) => {
         </h1>
         <h2>{blok.suffix}</h2>
         {/* <h2>You</h2>
-      <h1>Pay.</h1> */}
+            <h1>Pay.</h1> */}
       </>
     );
   }

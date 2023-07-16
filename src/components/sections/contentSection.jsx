@@ -73,8 +73,8 @@ const ContentSection = ({ blok }) => {
         className={clsx(
           "flex flex-col justify-center items-center w-full rounded-2xl col-content",
           "gap-20",
-          "max-md: col-full",
-          "max-sm: col-full"
+          "max-md:col-full",
+          "max-sm:col-full"
         )}
       >
         {blok.main.map((blok) => (

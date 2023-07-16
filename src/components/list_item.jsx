@@ -18,7 +18,7 @@ const ListItem = ({ blok, sectionTheme }) => {
     <div {...storyblokEditable(blok)} className={clsx("flex flex-col gap-y-2")}>
       <Link
         className={clsx(
-          "px-4 py-2 rounded",
+          "px-4 pt-2 pb-4 rounded",
           "flex",
           sectionTheme ? "hover:bg-accent10" : "text-white hover:bg-white10"
         )}
