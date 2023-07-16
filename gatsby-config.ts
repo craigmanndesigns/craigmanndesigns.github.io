@@ -1,5 +1,6 @@
 import type { GatsbyConfig } from "gatsby";
-// require = require('esm')(module);
+
+// require = require('esm');
 
 // const path = require('path');
 
@@ -9,9 +10,9 @@ import type { GatsbyConfig } from "gatsby";
 // const isProdEnv = NODE_ENV === 'production';
 // const isProdBranch = BRANCH === 'PRODUCTION';
 
-// require('dotenv').config({
-//   path: `.env.${!isProdBranch ? 'development' : NODE_ENV}`,
-// });
+// require("dotenv").config({
+//   path: `.env.${process.env.NODE_ENV}`,
+// })
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -32,15 +33,15 @@ const config: GatsbyConfig = {
   {
     resolve: 'gatsby-source-storyblok',
     options: {
-      // accessToken: process.env.GATSBY_STORYBLOK_ACCESS_TOKEN,
+      // accessToken: process.env.GATSBY_STORYBLOK_LOCAL_PUBLIC_TOKEN,
       accessToken: 'I0LxhZHYpfAbU0QKwSQ1Gwtt',
+      // accessToken: 'fAabqrghOpEV3mJrHJ6XIgtt',
       version: process.env.NODE_ENV === 'production' ? 'published' : 'draft',
       localAssets: true, 
     }
   },
   `gatsby-plugin-sass`,
   `gatsby-plugin-postcss`,
-    
 ]
 };
 

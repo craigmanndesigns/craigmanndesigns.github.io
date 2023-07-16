@@ -4,6 +4,7 @@ import clsx from "clsx";
 
 const Separator = ({ blok }) => {
   const [backgroundTheme, setBackgroundTheme] = useState();
+  let theme = useTheme();
 
   useEffect(() => {
     setBackgroundTheme(
@@ -11,9 +12,8 @@ const Separator = ({ blok }) => {
         ? theme.mode.light.background
         : theme.mode.dark.background
     );
-  }, [blok.theme]);
+  }, [blok.theme, theme.mode.light.background, theme.mode.dark.background]);
 
-  let theme = useTheme();
   return (
     <div
       className={clsx(

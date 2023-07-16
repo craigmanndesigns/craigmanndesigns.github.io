@@ -6,10 +6,9 @@ import InstaGrid from "./insta_grid";
 const InstaFeed = ({ blok }) => {
   const [instaItems, setInstaItems] = useState([]);
 
-  const userId = process.env.REACT_APP_INSTA_USER_ID;
-  console.log(userId);
+  const userId = "6348432841911010";
   const accessToken =
-    "IGQVJVMGliTXdpRUEyMUZAjNmhiXy1JRk5Xc0dBYm8tWkIxWVNwTzNUQ2dWVEVwYUE1ZAGZAndm9ZALWZAtMzkyMXJTcXhpRG9lLUtjbjFJN3gxNjhXVGk0T1pGTDRteExBX2FRemg5SmIzTzBaTTRLSzdhVAZDZD";
+    "IGQVJVRFpQU0YweU90WE9UNUF2MUhvTTYtd0FCblJVZAUM3b0ducnBKYTVUUGVVTnNzOVo2UFM1VVdfUmRRbjZAXbE9MT1F2WnVCemZATSWlFeTZAWbHRuWXpxOTdIRzJTd28yU0ZA0RnRkTEU2bGJQRkxSUQZDZD";
   const instaUrl = `https://graph.instagram.com/${userId}/media?access_token=${accessToken}`;
 
   useEffect(() => {

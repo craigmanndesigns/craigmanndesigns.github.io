@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ComponentProps } from "react";
+import React, { useState, useEffect } from "react";
 import { storyblokEditable, StoryblokComponent } from "gatsby-source-storyblok";
 import clsx from "clsx";
 
@@ -35,7 +35,13 @@ const Section = ({ blok, mainContent }) => {
           }
         : { opacity: 1 }
     );
-  }, [isInView]);
+  }, [
+    isInView,
+    theme.mode.light.background,
+    theme.mode.dark.background,
+    blok.id,
+    blok.theme,
+  ]);
 
   useEffect(() => {
     if (blok.px_padding === "fw") {

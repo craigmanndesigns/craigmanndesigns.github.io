@@ -10,7 +10,7 @@ import {
 
 import Layout from "../layout/Layout";
 
-const IndexPage = ({ data, location }) => {
+const IndexPage = ({ data }) => {
   let story = data.storyblokEntry;
   story = useStoryblokState(story);
 

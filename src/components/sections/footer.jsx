@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { storyblokEditable, StoryblokComponent } from "gatsby-source-storyblok";
+import React from "react";
 import { Link } from "gatsby-link";
 
 import clsx from "clsx";
 
-import { useTheme } from "@mui/material";
-
-const Footer = ({ blok, sectionTheme, sectionBG }) => {
+const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (

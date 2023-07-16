@@ -1,25 +1,13 @@
-import React, { useEffect, useState, useRef } from "react";
-import { storyblokEditable, StoryblokComponent } from "gatsby-source-storyblok";
+import React, { useEffect, useRef } from "react";
+import { storyblokEditable } from "gatsby-source-storyblok";
 import clsx from "clsx";
 
 import { animate, stagger } from "framer-motion";
 
-const Video = ({
-  blok,
-  isAnimated,
-  sectionTheme,
-  animatedContent,
-  setCurrentURL,
-  setOpenModal,
-}) => {
+const Video = ({ blok, isAnimated, sectionTheme, animatedContent }) => {
   const cardWidth = blok.width;
   const ref = useRef(null);
   const staggerCards = stagger(0.5, { startDelay: 0.5 });
-
-  const handleShowModal = () => {
-    setCurrentURL(blok.image.filename);
-    setOpenModal(true);
-  };
 
   useEffect(() => {
     if (animatedContent) {
@@ -34,7 +22,7 @@ const Video = ({
         }
       );
     }
-  }, [isAnimated, animatedContent]);
+  }, [isAnimated, animatedContent, staggerCards]);
   return (
     <div
       {...storyblokEditable(blok)}

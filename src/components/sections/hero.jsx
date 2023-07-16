@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { storyblokEditable, StoryblokComponent } from "gatsby-source-storyblok";
 import clsx from "clsx";
 
 import { RandomReveal } from "react-random-reveal";
 
 const Hero = ({ blok, sectionTheme }) => {
-  // const [isPlaying, setIsPlaying] = useState(true);
   const [isHover, setIsHover] = useState(false);
 
   function onMouseEnter() {
@@ -15,10 +14,6 @@ const Hero = ({ blok, sectionTheme }) => {
   function onMouseLeave() {
     setIsHover(false);
   }
-
-  // useEffect(() => {
-  //   setIsPlaying(isPlaying);
-  // }, [isPlaying]);
 
   return (
     <div

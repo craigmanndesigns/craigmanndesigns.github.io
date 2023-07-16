@@ -1,5 +1,5 @@
 import React from "react";
-import { storyblokEditable, StoryblokComponent } from "gatsby-source-storyblok";
+import { storyblokEditable } from "gatsby-source-storyblok";
 import clsx from "clsx";
 
 const WorkHero = ({ blok, sectionTheme }) => {

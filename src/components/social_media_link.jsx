@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Link from "gatsby-link";
 import { storyblokEditable } from "gatsby-source-storyblok";
 import clsx from "clsx";
 

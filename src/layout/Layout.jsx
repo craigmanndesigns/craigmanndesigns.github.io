@@ -71,8 +71,6 @@ storyblokInit({
 });
 
 const Layout = ({ children }) => {
-  const [sectionThem, setSectionThem] = React.useState();
-
   const { navigation } = useStaticQuery(graphql`
     query Navigation {
       navigation: storyblokEntry(slug: { eq: "navbar" }) {
