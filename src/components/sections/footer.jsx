@@ -15,7 +15,7 @@ const Footer = () => {
       ])}
     >
       <div className={clsx("w-full flex justify-center")}>
-        <Link className={clsx("px-5 py-6 hover:bg-white10")} to={"/contact"}>
+        <Link className={clsx("px-5 py-6 hover:bg-white10")} to={"/work"}>
           <span className={clsx("flex items-center justify-middle")}>
             <span className={clsx("text-2xl mr-2")}>👀</span> CHECK OUT MY WORK
           </span>

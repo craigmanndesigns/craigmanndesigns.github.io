@@ -84,7 +84,6 @@ button,
 }
 input,
 textarea {
-  color: #1b1b1b;
   border: solid 1px #1b1b1b;
   background: #3b3b3b;
   transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -92,6 +91,10 @@ textarea {
 input:hover,
 textarea:hover {
   background: #fff;
+}
+input:focus,
+textarea:focus {
+  color: #1b1b1b;
 }
 input:focus,
 textarea:focus,

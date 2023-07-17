@@ -116,6 +116,7 @@ const Button = ({ blok, sectionTheme }) => {
         href={url}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
+        target="_blank"
       >
         <span
           className={clsx(

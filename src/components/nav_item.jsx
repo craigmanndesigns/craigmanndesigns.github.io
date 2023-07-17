@@ -34,6 +34,7 @@ const NavItem = ({ blok, sectionBG }) => {
             : "bg-white10 text-white hover:bg-white hover:text-black"
         )}
         href={blok.link.url}
+        target="_blank"
       >
         <span className={clsx("h-6 w-6 flex items-center justify-middle")}>
           {icon}

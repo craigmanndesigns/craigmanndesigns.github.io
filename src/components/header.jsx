@@ -68,7 +68,8 @@ const Header = ({ blok, isInView, mainContent }) => {
           isScrolling
             ? "min-h-scroll flex w-fit max-md:min-h-scrollTab"
             : "flex flex-col max-sm:items-center gap-8",
-          alignedText
+          alignedText,
+          textAlign
         )}
       >
         {isScrolling ? renderScrollingHeader() : renderStaticHeader()}
