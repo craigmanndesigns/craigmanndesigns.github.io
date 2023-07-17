@@ -159,7 +159,7 @@ const ContactForm = ({ blok, sectionTheme }) => {
             <span
               className={clsx(
                 "flex items-center justify-center items-center uppercase",
-                "px-8 p-6 z-10",
+                "px-8 p-6 z-[5]",
                 "relative",
                 "butt",
                 buttonStyle

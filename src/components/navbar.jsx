@@ -96,7 +96,7 @@ const Navbar = ({ blok }) => {
     return (
       <>
         <div
-          className={clsx("flex absolute p-8 top-0 right-0 gap-x-4 z-10")}
+          className={clsx("flex absolute p-8 top-0 right-0 gap-x-4 z-30")}
           onClick={handleShowMenu}
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
@@ -108,7 +108,8 @@ const Navbar = ({ blok }) => {
             "absolute p-4 top-0 gap-x-4 bg-black",
             openMenu ? "flex" : "hidden",
             "w-screen h-screen",
-            "flex-col justify-between"
+            "flex-col justify-between",
+            "z-10"
           )}
         >
           <div
