@@ -46,7 +46,7 @@ const Card = ({ blok, isAnimated, sectionTheme, animatedContent }) => {
         cardWidth === "quarter" && "lg:col-quarter md:col-quarter",
         cardWidth === "full-width" && "col-full",
         sectionTheme === "light" ? "hover:bg-black10" : "hover:bg-dark-slate",
-        "opacity-0 translate-y-0"
+        animatedContent && "opacity-0 translate-y-0"
       )}
       ref={ref}
       to={url}

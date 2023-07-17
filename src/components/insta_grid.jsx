@@ -9,15 +9,13 @@ const InstaGrid = ({ items }) => {
 
   return (
     <div
-      className={clsx(
-        "w-full grid lg:grid-cols-12 lg:gap-x-4 lg:gap-y-8 items-end"
-      )}
+      className={clsx("w-full grid lg:grid-cols-12 gap-x-4 gap-y-8 items-end")}
     >
       {items.map((item) => (
         <div
           className={clsx(
-            "flex flex-col justify-end rounded",
-            "lg:col-quarter md:col-quarter"
+            "flex flex-col justify-end",
+            "lg:col-default md:col-default"
           )}
         >
           <img src={item.mediaUrl} />

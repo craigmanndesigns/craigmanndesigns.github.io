@@ -31,12 +31,8 @@ export default IndexPage;
 
 export const Head = () => (
   <>
-    <title>Hello World</title>
-    <meta name="description" content="Hello World" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
+    <title>{"Craig Mann Designs"}</title>
+    <meta name="Craig Mann Designs" content="My work portfolio" />
   </>
 );
 

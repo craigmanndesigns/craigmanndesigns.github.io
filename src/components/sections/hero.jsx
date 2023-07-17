@@ -22,7 +22,7 @@ const Hero = ({ blok, sectionTheme }) => {
       className={clsx(
         "text-center flex flex-col min-h-hero justify-center uppercase border w-full max-w-default",
         "max-sm:max-w-full",
-        "px-20",
+        "px-20 max-sm: px-4",
         sectionTheme === "light" ? "border-black" : "border-white"
       )}
     >

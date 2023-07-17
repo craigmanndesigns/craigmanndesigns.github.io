@@ -27,7 +27,6 @@ const Navbar = ({ blok }) => {
     }
   }, [windowWidth]);
   useEffect(() => {
-    console.log(openMenu);
     if (openMenu === true) {
       document.body.classList.add("no-scroll");
     } else {

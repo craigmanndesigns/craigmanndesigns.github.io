@@ -14,7 +14,6 @@ const ListItem = ({ blok, sectionTheme }) => {
     } else {
       setAnchorUrl(blok.link.cached_url);
     }
-    console.log(blok.link.cached_url);
   }, []);
 
   return (
