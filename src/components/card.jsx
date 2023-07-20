@@ -63,15 +63,17 @@ const Card = ({ blok, isAnimated, sectionTheme, animatedContent }) => {
       <div className={clsx("p-2")}>
         <div
           className={clsx(
-            "flex justify-between justify-middle items-center mb-4"
+            "flex justify-between justify-middle items-center",
+            "gap-x-2 mb-4"
             // "max-sm:flex-col max-sm:items-start"
           )}
         >
-          <h4 className={clsx("break-all m-0")}>{blok.title}</h4>
+          <h4 className={clsx("break-word m-0")}>{blok.title}</h4>
           <div
             className={clsx(
               "flex flex-wrap ",
-              "max-sm:flex-nowrap max-sm: gap-2"
+              "max-sm:flex-nowrap max-sm: gap-2",
+              "justify-end"
             )}
           >
             {blok.tags.map((blok) => (

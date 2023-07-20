@@ -42,6 +42,13 @@ const config: GatsbyConfig = {
   },
   `gatsby-plugin-sass`,
   `gatsby-plugin-postcss`,
+  {
+    resolve: `gatsby-plugin-google-analytics`,
+    options: {
+      trackingId: "G-PX5MXGPPC4",
+      head: true,
+    },
+  },
 ]
 };
 

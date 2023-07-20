@@ -46,7 +46,8 @@ h5 {
   text-transform: uppercase;
   line-height: 100%;
 }
-a {
+a,
+.scrollButton {
   font-family: "Playfair Display SC", serif;
   font-weight: 600;
   line-height: 100%;
@@ -190,7 +191,9 @@ a:hover .butt,
 button:hover .butt {
   transform: translate3d(0rem, 0rem, 0);
 }
-
+.scrollTransition {
+  transition: all 0.5s ease-in-out;
+}
 @media not all and (min-width: 769px) {
   h1,
   .work-hero h1 {

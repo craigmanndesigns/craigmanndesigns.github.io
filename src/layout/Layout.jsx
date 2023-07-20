@@ -5,6 +5,8 @@ import { graphql, useStaticQuery } from "gatsby";
 
 import clsx from "clsx";
 
+import CookieConsent from "react-cookie-consent";
+
 import BrutalTheme from "../styles/brutal_theme";
 
 import Teaser from "../components/teaser";
@@ -32,6 +34,7 @@ import Video from "../components/video";
 import InstaFeed from "../components/insta_feed";
 import InstaGrid from "../components/insta_grid";
 import Footer from "../components/sections/footer";
+import ScrollToTop from "../components/scrollToTop";
 
 const sbConfig = configuration.plugins.find(
   (item) => item.resolve === "gatsby-source-storyblok"
@@ -90,8 +93,32 @@ const Layout = ({ children }) => {
     <>
       <Cursor />
       <BrutalTheme>
+        <CookieConsent
+          style={{
+            background: "#1b1b1b",
+            borderTop: "solid 1px #fff",
+            padding: "0 .25rem",
+          }}
+          buttonText={"OK, thanks"}
+          buttonStyle={{
+            background: "#fff",
+            color: "#1b1b1b",
+            padding: "1rem 1.5rem",
+          }}
+          enableDeclineButton={true}
+          declineButtonText={"No, thanks"}
+          declineButtonStyle={{
+            background: "#1b1b1b",
+            border: "1px solid #fff",
+            color: "#fff",
+            padding: "1rem 1.5rem",
+          }}
+        >
+          This site uses cookies.
+        </CookieConsent>
         <Navbar blok={navbarBlok.content} />
         <main className={clsx("main")}>{children}</main>
+        <ScrollToTop />
         <Footer />
       </BrutalTheme>
     </>
