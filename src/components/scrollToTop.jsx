@@ -7,6 +7,7 @@ import { North } from "@mui/icons-material";
 const ScrollToTop = ({ blok, sectionTheme }) => {
   const [showButton, setShowButton] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
+
   const handleScroll = () => {
     const position = window.scrollY;
     setScrollPosition(position);
@@ -14,7 +15,6 @@ const ScrollToTop = ({ blok, sectionTheme }) => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
-    console.log(scrollPosition);
 
     scrollPosition <= 1000 ? setShowButton(true) : setShowButton(false);
     return () => {
@@ -37,7 +37,6 @@ const ScrollToTop = ({ blok, sectionTheme }) => {
       onClick={scrollUp}
     >
       BACK TO THE TOP
-      {/* <North className={clsx("ml-2")} /> */}
     </button>
   );
 };

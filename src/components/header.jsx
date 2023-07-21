@@ -5,7 +5,7 @@ import clsx from "clsx";
 
 import { RandomReveal } from "react-random-reveal";
 
-const Header = ({ blok, isInView, mainContent }) => {
+const Header = ({ blok, isInView, mainContent, sectionTheme }) => {
   const [isScrolling, setIsScrolling] = useState();
   const [isHover, setIsHover] = useState(false);
   const [animateHeader, setAnimateHeader] = useState(false);
@@ -48,6 +48,7 @@ const Header = ({ blok, isInView, mainContent }) => {
       setAlignedText("items-end");
       setTextAlign("text-right");
     }
+    console.log(sectionTheme);
   }, []);
   return (
     <div
@@ -122,7 +123,7 @@ const Header = ({ blok, isInView, mainContent }) => {
             mainContent ? "max-w-80" : "max-w-40",
             textAlign,
             "max-sm:max-w-full max-sm:text-center",
-            "text-blk"
+            sectionTheme === "light" ? "text-wht" : "text-blk"
           )}
         >
           {render(blok.text)}
