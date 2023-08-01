@@ -9,7 +9,11 @@ import { Instagram } from "@mui/icons-material";
 
 const NavItem = ({ blok, sectionBG }) => {
   const [icon, setIcon] = useState();
-  const [url, setURL] = useState("/" + blok.link.cached_url);
+  const [url, setURL] = useState(
+    blok.link.linktype === "story"
+      ? "/" + blok.link.cached_url
+      : blok.link.cached_url
+  );
 
   useEffect(() => {
     if (blok.icon === "github") setIcon(<GitHub />);
@@ -43,21 +47,40 @@ const NavItem = ({ blok, sectionBG }) => {
     );
   }
   function renderButton() {
-    return (
-      <Link
-        className={clsx(
-          "px-5 py-4",
-          sectionBG
-            ? "bg-black10 hover:bg-black hover:text-white"
-            : "bg-white10 text-white hover:bg-white hover:text-black"
-        )}
-        to={url}
-      >
-        <span className={clsx("flex items-center justify-middle")}>
-          {blok.name}
-        </span>
-      </Link>
-    );
+    if (blok.link.linktype === "story") {
+      return (
+        <Link
+          className={clsx(
+            "px-5 py-4",
+            sectionBG
+              ? "bg-black10 hover:bg-black hover:text-white"
+              : "bg-white10 text-white hover:bg-white hover:text-black"
+          )}
+          to={url}
+        >
+          <span className={clsx("flex items-center justify-middle")}>
+            {blok.name}
+          </span>
+        </Link>
+      );
+    } else {
+      return (
+        <a
+          className={clsx(
+            "px-5 py-4",
+            sectionBG
+              ? "bg-black10 hover:bg-black hover:text-white"
+              : "bg-white10 text-white hover:bg-white hover:text-black"
+          )}
+          href={url}
+          target="_blank"
+        >
+          <span className={clsx("flex items-center justify-middle")}>
+            {blok.name}
+          </span>
+        </a>
+      );
+    }
   }
 };
 
