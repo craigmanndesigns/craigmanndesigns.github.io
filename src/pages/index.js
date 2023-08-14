@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import clsx from "clsx";
 
 // import { Cube } from "react-preloaders";
+import Preloader from "../components/sections/preloader";
 
 import {
   StoryblokComponent,
@@ -20,26 +21,28 @@ const IndexPage = ({ data }) => {
     <StoryblokComponent blok={blok} key={blok._uid} />
   ));
 
-  // const [loading, setLoading] = React.useState(true);
+  const [loading, setLoading] = React.useState(true);
 
-  // React.useEffect(() => {
-  //   fetch("https://jsonplaceholder.typicode.com/todos/1")
-  //     .then((response) => response.json())
-  //     .then((json) => {
-  //       setLoading(false);
-  //     })
-  //     .catch((err) => {
-  //       setLoading(false);
-  //     });
-  // }, []);
+  React.useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/todos/1")
+      .then((response) => response.json())
+      .then((json) => {
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false);
+      });
+  }, []);
 
   return (
-    <Layout>
-      <div {...storyblokEditable(story.content)} className={clsx("cont")}>
-        {components}
-      </div>
-      {/* <Cube customLoading={loading} /> */}
-    </Layout>
+    <>
+      {loading ? <Preloader /> : <></>}
+      <Layout>
+        <div {...storyblokEditable(story.content)} className={clsx("cont")}>
+          {components}
+        </div>
+      </Layout>
+    </>
   );
 };
 

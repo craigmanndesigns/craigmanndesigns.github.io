@@ -58,7 +58,7 @@ const Navbar = ({ blok }) => {
   }
 
   return (
-    <div className={clsx("fixed w-full z-[999]")}>
+    <div className={clsx("fixed w-full z-[995]")}>
       {/* {renderMenu ? renderNav() : renderMobNav()} */}
       {scrolled ? renderMobNav() : renderNav()}
     </div>
