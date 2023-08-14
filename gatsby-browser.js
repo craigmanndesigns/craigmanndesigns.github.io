@@ -5,7 +5,7 @@
 //  */
 
 // // You can delete this file if you're not using it
-// import "./src/assets/styles/global.scss";
+
 import "./src/styles/global.css";
 import "@fontsource/playfair-display-sc/400.css";
 import "@fontsource/playfair-display-sc/700.css";

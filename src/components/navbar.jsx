@@ -5,14 +5,17 @@ import { ClearAll, Home, Menu, Clear } from "@mui/icons-material";
 import { Link } from "gatsby-link";
 
 import useWindowWidth from "../hooks/useWindowWidth";
+import useScroll from "../hooks/useScroll";
 
 const Navbar = ({ blok }) => {
   const [sectionBG, setSectionBg] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
   const [isHover, setIsHover] = useState(false);
   const [renderMenu, setRenderMenu] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const windowWidth = useWindowWidth();
+  const scroll = useScroll();
 
   useEffect(() => {
     const heroSection = document.getElementById("hero");
@@ -26,6 +29,15 @@ const Navbar = ({ blok }) => {
       setRenderMenu(true);
     }
   }, [windowWidth]);
+
+  useEffect(() => {
+    if (renderMenu) {
+      window.scrollY >= 320 ? setScrolled(true) : setScrolled(false);
+    } else {
+      setScrolled(true);
+    }
+  }, [scroll]);
+
   useEffect(() => {
     if (openMenu === true) {
       document.body.classList.add("no-scroll");
@@ -45,7 +57,12 @@ const Navbar = ({ blok }) => {
     setIsHover(false);
   }
 
-  return <>{renderMenu ? renderNav() : renderMobNav()}</>;
+  return (
+    <div className={clsx("fixed w-full z-[999]")}>
+      {/* {renderMenu ? renderNav() : renderMobNav()} */}
+      {scrolled ? renderMobNav() : renderNav()}
+    </div>
+  );
 
   function renderNav() {
     return (
@@ -109,7 +126,8 @@ const Navbar = ({ blok }) => {
             openMenu ? "flex" : "hidden",
             "w-screen h-screen",
             "flex-col justify-between",
-            "z-10"
+            "z-10",
+            openMenu ? "animate-fadeIn" : "animate-fadeOut"
           )}
         >
           <div
@@ -172,12 +190,13 @@ const Navbar = ({ blok }) => {
       <div
         className={clsx(
           "p-2 rounded-full",
-          sectionBG
-            ? "bg-black10 hover:bg-black hover:text-white"
-            : "bg-white10 text-white hover:bg-white hover:text-black"
+          "bg-black text-white border border-white"
+          // sectionBG
+          //   ? "bg-black hover:bg-black hover:text-white"
+          //   : "bg-white text-white hover:bg-white hover:text-black"
         )}
       >
-        <span className={clsx("h-6 w-6 flex items-center justify-middle")}>
+        <span className={clsx("h-6 w-6 flex items-center justify-center")}>
           <ClearAll />
         </span>
       </div>

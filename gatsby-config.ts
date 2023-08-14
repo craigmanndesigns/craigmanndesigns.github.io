@@ -49,6 +49,18 @@ const config: GatsbyConfig = {
       head: true,
     },
   },
+  {
+    resolve: `gatsby-plugin-google-gtag`,
+    options: {
+      trackingIds: [
+      "G-PX5MXGPPC4", // Google Analytics / GA
+      ],
+      pluginConfig: {
+        // Puts tracking script in the head instead of the body
+        head: true
+      },
+    },
+  },
 ]
 };
 
