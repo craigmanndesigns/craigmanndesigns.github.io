@@ -118,7 +118,7 @@ const Layout = ({ children }) => {
         </CookieConsent>
         <Navbar blok={navbarBlok.content} />
         <main className={clsx("main")}>{children}</main>
-        <ScrollToTop />
+        {/* <ScrollToTop /> */}
         <Footer />
       </BrutalTheme>
     </>

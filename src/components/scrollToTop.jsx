@@ -16,7 +16,7 @@ const ScrollToTop = ({ blok, sectionTheme }) => {
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
 
-    scrollPosition <= 1000 ? setShowButton(true) : setShowButton(false);
+    scrollPosition <= 1300 ? setShowButton(true) : setShowButton(false);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };

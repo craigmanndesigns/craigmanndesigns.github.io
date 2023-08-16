@@ -48,7 +48,6 @@ const Header = ({ blok, isInView, mainContent, sectionTheme }) => {
       setAlignedText("items-end");
       setTextAlign("text-right");
     }
-    console.log(sectionTheme);
   }, []);
   return (
     <div

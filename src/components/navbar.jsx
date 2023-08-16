@@ -113,7 +113,7 @@ const Navbar = ({ blok }) => {
     return (
       <>
         <div
-          className={clsx("flex absolute p-8 top-0 right-0 gap-x-4 z-30")}
+          className={clsx("flex absolute p-4 top-0 right-0 gap-x-4 z-30")}
           onClick={handleShowMenu}
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
@@ -189,11 +189,9 @@ const Navbar = ({ blok }) => {
     return (
       <div
         className={clsx(
-          "p-2 rounded-full",
-          "bg-black text-white border border-white"
-          // sectionBG
-          //   ? "bg-black hover:bg-black hover:text-white"
-          //   : "bg-white text-white hover:bg-white hover:text-black"
+          "p-2",
+          "bg-black text-white border border-white",
+          "hover:bg-white hover:text-black hover:border-accent hover:border-2"
         )}
       >
         <span className={clsx("h-6 w-6 flex items-center justify-center")}>
@@ -207,8 +205,9 @@ const Navbar = ({ blok }) => {
     return (
       <div
         className={clsx(
-          "p-2 rounded-full",
-          "bg-white10 text-white hover:bg-white hover:text-black"
+          "p-2",
+          "bg-white text-black",
+          "hover:bg-black hover:text-white hover:border-accent hover:border-2"
         )}
       >
         <span className={clsx("h-6 w-6 flex items-center justify-middle")}>

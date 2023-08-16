@@ -52,10 +52,6 @@ module.exports = {
       black: "#1b1b1b",
       white: "#ffffff",
     },
-    animation: {
-      scroll: "scroll 20s linear infinite",
-    },
-
     extend: {
       borderColor: {
         accent: "#61E8D3",
@@ -75,12 +71,6 @@ module.exports = {
         accent: "#61E8D3",
         lightWhite: "#E9E9E9",
       },
-      keyframes: {
-        scroll: {
-          "0%": { transform: "translateX(0%)" },
-          "100%": { transform: "translateX(-100%)" },
-        },
-      },
       spacing: {
         separator: "-2rem",
         separatorMob: "-1rem",
@@ -89,8 +79,13 @@ module.exports = {
         fadeIn: "fadeIn .3s ease-in-out",
         load: "load 2.5s ease-in-out infinite",
         spin: "spin 2.5s ease-in-out infinite",
+        scroll: "scroll 20s linear infinite",
       },
       keyframes: {
+        scroll: {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
         fadeIn: {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
