@@ -1,0 +1,252 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  cursor: none;
+  cursor: url("../images/cursor.svg") 3 3, auto;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+:focus {
+  outline: none;
+}
+html {
+  scroll-behavior: smooth;
+}
+body.no-scroll {
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+body,
+button {
+  margin: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Playfair Display SC", serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 100%;
+}
+a,
+.scrollButton {
+  font-family: "Playfair Display SC", serif;
+  font-weight: 600;
+  line-height: 100%;
+}
+.text-blk a {
+  color: #61e8d3;
+}
+h1,
+h2 {
+  line-height: 0.8;
+}
+h1 {
+  font-size: 18rem;
+}
+.work-hero h1 {
+  font-size: 10rem;
+}
+h2 {
+  font-size: 12rem;
+}
+h3 {
+  font-size: 8rem;
+}
+h4 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+h5 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+h6,
+p,
+body,
+button,
+.tag {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+b {
+  font-weight: bold;
+}
+input,
+textarea {
+  border: solid 1px #1b1b1b;
+  background: #3b3b3b;
+  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+input:hover,
+textarea:hover {
+  background: #fff;
+}
+input:focus,
+textarea:focus {
+  color: #1b1b1b;
+}
+input:focus,
+textarea:focus,
+button:focus,
+a:focus {
+  outline: 1px solid #61e8d3;
+  outline-offset: 2px;
+}
+p {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+}
+body {
+  background: #1b1b1b;
+}
+ol {
+  list-style-type: decimal;
+  padding-inline-start: 2rem;
+}
+p ul {
+  list-style-type: square;
+  padding-inline-start: 2rem;
+}
+
+main {
+  & .cont {
+    /* overflow: hidden; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    row-gap: 1rem;
+  }
+}
+footer {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2.5rem 5rem 5rem;
+}
+.text-accent {
+  color: #61e8d3;
+}
+.cursor {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--width);
+  height: var(--height);
+  transform: translate(
+    calc(var(--x) - var(--width) / 2),
+    calc(var(--y) - var(--height) / 2)
+  );
+  transition-duration: 0.1s;
+  transition-timing-function: cubic-bezier(0.25, 0.25, 0.42, 1);
+  transition-property: width, height, transform;
+  z-index: 99;
+  pointer-events: none;
+  will-change: transform;
+  border-radius: var(--radius);
+  cursor: url("../images/cursor.svg") 3 3, auto;
+
+  @media (pointer: fine) {
+    display: block;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: var(--radius);
+    border: 2px solid #61e8d3;
+    opacity: var(--scale);
+    transform: scale(var(--scale));
+    transition: 0.3s cubic-bezier(0.25, 0.25, 0.42, 1) opacity,
+      0.3s cubic-bezier(0.25, 0.25, 0.42, 1) transform,
+      0.1s cubic-bezier(0.25, 0.25, 0.42, 1) border-radius;
+  }
+}
+body:not(body:hover) .cursor::after {
+  opacity: 0;
+  transform: scale(0);
+}
+.butt {
+  transform: translate3d(-0.5rem, -0.5rem, 0);
+  transition: transform 0.3s ease-in-out;
+}
+a:hover .butt,
+button:hover .butt {
+  transform: translate3d(0rem, 0rem, 0);
+}
+.scrollTransition {
+  transition: all 0.5s ease-in-out;
+}
+@media not all and (min-width: 769px) {
+  h1,
+  .work-hero h1 {
+    font-size: 10rem;
+  }
+  h2 {
+    font-size: 8rem;
+  }
+  h3 {
+    font-size: 6rem;
+  }
+  h3.scrolling-header {
+    font-size: 8rem;
+    line-height: 10rem;
+  }
+}
+
+@media not all and (min-width: 640px) {
+  main {
+    padding: 0rem;
+  }
+  h1 {
+    font-size: 5rem;
+  }
+  .work-hero h1,
+  h2 {
+    font-size: 4rem;
+  }
+  h3 {
+    word-break: break-word;
+    font-size: 2.5rem;
+  }
+  h4 {
+    font-size: 1.5rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+  .work-hero h1 {
+    word-break: break-word;
+  }
+  h3.scrolling-header {
+    font-size: 8rem;
+    line-height: 15rem;
+  }
+}
