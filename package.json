@@ -11,6 +11,8 @@
   },
   "scripts": {
     "develop": "ENABLE_GATSBY_REFRESH_ENDPOINT=true gatsby develop",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
