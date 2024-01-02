@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ComponentProps } from "react";
+import React, { useState, useEffect } from "react";
 import { storyblokEditable, StoryblokComponent } from "gatsby-source-storyblok";
 import clsx from "clsx";
 
@@ -10,7 +10,7 @@ import useWindowWidth from "../../hooks/useWindowWidth";
 
 const ContentSection = ({ blok }) => {
   const [backgroundTheme, setBackgroundTheme] = useState();
-  const [sectionTheme, setSectionTheme] = useState(blok.theme);
+  const [sectionTheme] = useState(blok.theme);
   const [isAnimated, setIsAnimated] = useState();
   const [onMobile, setOnMobile] = useState(false);
 

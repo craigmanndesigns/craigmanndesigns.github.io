@@ -44,6 +44,12 @@ const Video = ({ blok, isAnimated, sectionTheme, animatedContent }) => {
         <div className={clsx("p-2")}>
           <video className={clsx("width-full")} controls>
             <source src={blok.video.filename} type="video/mp4" />
+            <track
+              src="captions_en.vtt"
+              kind="captions"
+              srclang="en"
+              label="english_captions"
+            ></track>
           </video>
         </div>
       )}

@@ -8,7 +8,7 @@ import { useInView } from "framer-motion";
 
 const Section = ({ blok, mainContent }) => {
   const [backgroundTheme, setBackgroundTheme] = useState();
-  const [sectionTheme, setSectionTheme] = useState(blok.theme);
+  const [sectionTheme] = useState(blok.theme);
   const [isFullWidth, setIsFullWidth] = useState();
   const [isAnimated, setIsAnimated] = useState();
   const [paddingY, setPaddingY] = useState("");
@@ -62,7 +62,7 @@ const Section = ({ blok, mainContent }) => {
     setHeight(
       blok.full_height ? "min-h-default max-md:min-h-defaultTab" : "px-12"
     );
-  }, []);
+  }, [blok.padding, blok.spacing, blok.full_height]);
   return <>{mainContent ? renderWorkSection() : renderSection()}</>;
 
   function renderSection() {

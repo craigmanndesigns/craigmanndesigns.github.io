@@ -34,7 +34,6 @@ import Video from "../components/video";
 import InstaFeed from "../components/insta_feed";
 import InstaGrid from "../components/insta_grid";
 import Footer from "../components/sections/footer";
-import ScrollToTop from "../components/scrollToTop";
 
 const sbConfig = configuration.plugins.find(
   (item) => item.resolve === "gatsby-source-storyblok"
