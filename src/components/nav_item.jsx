@@ -3,13 +3,13 @@ import { Link } from "gatsby-link";
 import { storyblokEditable } from "gatsby-source-storyblok";
 import clsx from "clsx";
 
-import { GitHub, LinkOutlined } from "@mui/icons-material";
+import { GitHub } from "@mui/icons-material";
 import { LinkedIn } from "@mui/icons-material";
 import { Instagram } from "@mui/icons-material";
 
 const NavItem = ({ blok, sectionBG }) => {
   const [icon, setIcon] = useState();
-  const [url, setURL] = useState(
+  const [url] = useState(
     blok.link.linktype === "story"
       ? "/" + blok.link.cached_url
       : blok.link.cached_url
