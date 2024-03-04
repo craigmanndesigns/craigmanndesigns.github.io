@@ -4,7 +4,7 @@ import clsx from "clsx";
 
 const InstaGrid = ({ items }) => {
   if (items.length === 0) {
-    return <div>I'm broke :(</div>;
+    return <div>I'm broke</div>;
   }
 
   return (
