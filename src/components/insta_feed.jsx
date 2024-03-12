@@ -8,7 +8,7 @@ const InstaFeed = ({ blok }) => {
 
   const userId = "6348432841911010";
   const accessToken =
-    "IGQVJVRFpQU0YweU90WE9UNUF2MUhvTTYtd0FCblJVZAUM3b0ducnBKYTVUUGVVTnNzOVo2UFM1VVdfUmRRbjZAXbE9MT1F2WnVCemZATSWlFeTZAWbHRuWXpxOTdIRzJTd28yU0ZA0RnRkTEU2bGJQRkxSUQZDZD";
+    "IGQWRQWHEwdHJsN04zaTgtU2xOVjhJTGt1aGxPRWhBM3JwVlJxX0VxbW15NHVYTWttdWF5N2xaWENqSDJRQ3FlcWFweXNVcTZA3TEFhSUlXNkc3VjBUcEZAkLWdPR0o2VE9aa1I5VFp3SmxrMkxGTzFVemJGYUpvWncZD";
   const instaUrl = `https://graph.instagram.com/${userId}/media?access_token=${accessToken}`;
 
   useEffect(() => {
