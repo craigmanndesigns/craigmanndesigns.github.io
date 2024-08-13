@@ -1,5 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
-import { storyblokEditable, StoryblokComponent } from "gatsby-source-storyblok";
+import React from "react";
 import clsx from "clsx";
 
 const InstaGrid = ({ items }) => {
