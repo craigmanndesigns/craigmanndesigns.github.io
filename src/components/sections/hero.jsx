@@ -50,7 +50,6 @@ const Hero = ({ blok, sectionTheme }) => {
               "do UX",
               "Draw",
               "Create",
-              "Prettify",
             ]}
           />
           {/* ) : (
