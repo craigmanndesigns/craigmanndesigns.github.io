@@ -29,39 +29,38 @@ const config: GatsbyConfig = {
       "icon": "src/images/icon.png"
     }
   },
-  `gatsby-plugin-gatsby-cloud`,
-  {
-    resolve: 'gatsby-source-storyblok',
-    options: {
-      // accessToken: process.env.GATSBY_STORYBLOK_LOCAL_PUBLIC_TOKEN,
-      accessToken: 'I0LxhZHYpfAbU0QKwSQ1Gwtt',
-      // accessToken: 'fAabqrghOpEV3mJrHJ6XIgtt',
-      version: process.env.NODE_ENV === 'production' ? 'published' : 'draft',
-      localAssets: true, 
-    }
-  },
-  `gatsby-plugin-sass`,
-  `gatsby-plugin-postcss`,
-  {
-    resolve: `gatsby-plugin-google-analytics`,
-    options: {
-      trackingId: "G-PX5MXGPPC4",
-      head: true,
+    {
+      resolve: 'gatsby-source-storyblok',
+      options: {
+        // accessToken: process.env.GATSBY_STORYBLOK_LOCAL_PUBLIC_TOKEN,
+        accessToken: 'I0LxhZHYpfAbU0QKwSQ1Gwtt',
+        // accessToken: 'fAabqrghOpEV3mJrHJ6XIgtt',
+        version: process.env.NODE_ENV === 'production' ? 'published' : 'draft',
+        localAssets: true,
+      }
     },
-  },
-  {
-    resolve: `gatsby-plugin-google-gtag`,
-    options: {
-      trackingIds: [
-      "G-PX5MXGPPC4", // Google Analytics / GA
-      ],
-      pluginConfig: {
-        // Puts tracking script in the head instead of the body
-        head: true
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-postcss`,
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "G-PX5MXGPPC4",
+        head: true,
       },
     },
-  },
-]
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          "G-PX5MXGPPC4", // Google Analytics / GA
+        ],
+        pluginConfig: {
+          // Puts tracking script in the head instead of the body
+          head: true
+        },
+      },
+    },
+  ]
 };
 
 export default config;

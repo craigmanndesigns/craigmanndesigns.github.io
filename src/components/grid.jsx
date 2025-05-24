@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { storyblokEditable, StoryblokComponent } from "gatsby-source-storyblok";
 import clsx from "clsx";
-import Lightbox from "react-awesome-lightbox";
+// import Lightbox from "react-awesome-lightbox";
 // You need to import the CSS only once
-import "react-awesome-lightbox/build/style.css";
+// import "react-awesome-lightbox/build/style.css";
 import { useInView } from "framer-motion";
 
 const Grid = ({ blok, sectionTheme }) => {
@@ -77,11 +77,11 @@ const Grid = ({ blok, sectionTheme }) => {
         className={clsx("w-full")}
         ref={ref}
       >
-        <Lightbox
+        {/* <Lightbox
           images={images}
           allowRotate={false}
           onClose={handleShowModal}
-        />
+        /> */}
       </div>
     );
   }

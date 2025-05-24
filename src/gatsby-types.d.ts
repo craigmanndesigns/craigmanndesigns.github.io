@@ -1030,6 +1030,7 @@ type Query_storyblokEntryArgs = {
   position: InputMaybe<IntQueryOperatorInput>;
   published_at: InputMaybe<DateQueryOperatorInput>;
   slug: InputMaybe<StringQueryOperatorInput>;
+  updated_at: InputMaybe<DateQueryOperatorInput>;
   uuid: InputMaybe<StringQueryOperatorInput>;
 };
 
@@ -1837,6 +1838,7 @@ type StoryblokEntry = Node & {
   readonly position: Maybe<Scalars['Int']>;
   readonly published_at: Maybe<Scalars['Date']>;
   readonly slug: Maybe<Scalars['String']>;
+  readonly updated_at: Maybe<Scalars['Date']>;
   readonly uuid: Maybe<Scalars['String']>;
 };
 
@@ -1863,6 +1865,14 @@ type StoryblokEntry_gatsbyPathArgs = {
 
 
 type StoryblokEntry_published_atArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type StoryblokEntry_updated_atArgs = {
   difference: InputMaybe<Scalars['String']>;
   formatString: InputMaybe<Scalars['String']>;
   fromNow: InputMaybe<Scalars['Boolean']>;
@@ -1935,6 +1945,7 @@ type StoryblokEntryFieldSelector = {
   readonly position: InputMaybe<FieldSelectorEnum>;
   readonly published_at: InputMaybe<FieldSelectorEnum>;
   readonly slug: InputMaybe<FieldSelectorEnum>;
+  readonly updated_at: InputMaybe<FieldSelectorEnum>;
   readonly uuid: InputMaybe<FieldSelectorEnum>;
 };
 
@@ -1959,6 +1970,7 @@ type StoryblokEntryFilterInput = {
   readonly position: InputMaybe<IntQueryOperatorInput>;
   readonly published_at: InputMaybe<DateQueryOperatorInput>;
   readonly slug: InputMaybe<StringQueryOperatorInput>;
+  readonly updated_at: InputMaybe<DateQueryOperatorInput>;
   readonly uuid: InputMaybe<StringQueryOperatorInput>;
 };
 
@@ -2024,6 +2036,7 @@ type StoryblokEntrySortInput = {
   readonly position: InputMaybe<SortOrderEnum>;
   readonly published_at: InputMaybe<SortOrderEnum>;
   readonly slug: InputMaybe<SortOrderEnum>;
+  readonly updated_at: InputMaybe<SortOrderEnum>;
   readonly uuid: InputMaybe<SortOrderEnum>;
 };
 
