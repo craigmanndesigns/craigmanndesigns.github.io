@@ -125,44 +125,44 @@ const Navbar = ({ blok }) => {
             "absolute p-4 top-0 gap-x-4 bg-black",
             openMenu ? "flex" : "hidden",
             "w-screen h-screen",
-            "flex-col justify-between",
             "z-10",
             openMenu ? "animate-fadeIn" : "animate-fadeOut"
           )}
         >
           <div
             className={clsx(
-              "border border-white h-full p-6 pt-20",
-              "flex flex-col justify-between"
+              "border border-white w-full h-full p-6",
+              "flex flex-col"
             )}
           >
             <ul
               {...storyblokEditable(blok)}
               key={blok._uid}
               className={clsx(
-                "m-0 p-0 w-full",
-                "flex flex-col items-center justify-end gap-8",
-                "my-8"
+                "m-0 p-0 w-full h-full",
+                "flex flex-col gap-8",
               )}
             >
-              <Link
-                className={clsx(
-                  "px-5 py-4",
-                  "bg-white10 text-white hover:bg-white hover:text-black"
-                )}
-                to={"/"}
-                onClick={handleShowMenu}
+              <li
+                className={clsx("flex items-center")}
               >
-                <span className={clsx("flex items-center justify-middle")}>
-                  Home
-                </span>
-              </Link>
+                <Link
+                  className={clsx(
+                    "px-5 py-4",
+                    "bg-white10 text-white hover:bg-white hover:text-black"
+                  )}
+                  to={"/"}
+                  onClick={handleShowMenu}
+                >
+                  <h3>Home</h3>
+                </Link>
+              </li>
               {blok.body.map((blok) => (
                 <li
                   key={blok._uid}
-                  className={clsx("flex items-center justify-end")}
+                  className={clsx("flex items-center")}
                 >
-                  <StoryblokComponent blok={blok} sectionBG={false} />
+                  <StoryblokComponent blok={blok} sectionBG={false} isMobile={true} />
                 </li>
               ))}
             </ul>

@@ -7,7 +7,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      serif: ["Playfair Display SC", "serif"],
+      serif: ["Oswald", "sans-serif"],
       sans: ["Roboto", "sans-serif"],
     },
     colors: {
@@ -19,6 +19,7 @@ module.exports = {
       accent: "#61E8D3",
       lightWhite: "#E9E9E9",
     },
+
     minHeight: {
       default: "100vh",
       defaultTab: "calc(100vh - 2rem)",
@@ -53,6 +54,9 @@ module.exports = {
       white: "#ffffff",
     },
     extend: {
+      height: {
+        hero: "calc(100vh - 2rem)",
+      },
       borderColor: {
         accent: "#61E8D3",
       },

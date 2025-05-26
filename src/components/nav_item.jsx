@@ -7,7 +7,7 @@ import { GitHub } from "@mui/icons-material";
 import { LinkedIn } from "@mui/icons-material";
 import { Instagram } from "@mui/icons-material";
 
-const NavItem = ({ blok, sectionBG }) => {
+const NavItem = ({ blok, sectionBG, isMobile }) => {
   const [icon, setIcon] = useState();
   const [url] = useState(
     blok.link.linktype === "story"
@@ -58,9 +58,9 @@ const NavItem = ({ blok, sectionBG }) => {
           )}
           to={url}
         >
-          <span className={clsx("flex items-center justify-middle")}>
+          {isMobile ? <h3>{blok.name}</h3> : <span className={clsx("flex items-center justify-middle")}>
             {blok.name}
-          </span>
+          </span>}
         </Link>
       );
     } else {
@@ -75,9 +75,9 @@ const NavItem = ({ blok, sectionBG }) => {
           href={url}
           target="_blank"
         >
-          <span className={clsx("flex items-center justify-middle")}>
+          {isMobile ? <h3>{blok.name}</h3> : <span className={clsx("flex items-center justify-middle")}>
             {blok.name}
-          </span>
+          </span>}
         </a>
       );
     }
