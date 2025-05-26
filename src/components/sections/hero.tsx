@@ -1,4 +1,4 @@
-import React, { useState, MouseEvent, useCallback, useEffect } from "react";
+import React, { useState, MouseEvent, TouchEvent, useCallback, useEffect } from "react";
 import { storyblokEditable, StoryblokComponent } from "gatsby-source-storyblok";
 import clsx from "clsx";
 import { RandomReveal } from "react-random-reveal";
@@ -38,7 +38,8 @@ const Hero: React.FC<HeroProps> = ({ blok, sectionTheme }) => {
 
 
   const onMouseMove = useCallback(
-    throttle((e: MouseEvent<HTMLDivElement>) => {
+    throttle((e: MouseEvent<HTMLDivElement> | TouchEvent<HTMLDivElement>) => {
+
       const card = e.currentTarget;
       const box = card.getBoundingClientRect();
       const x = e.clientX - box.left;
