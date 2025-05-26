@@ -77,7 +77,7 @@ const Hero: React.FC<HeroProps> = ({ blok, sectionTheme }) => {
       key={blok._uid}
       className={
         clsx(
-          " h-hero uppercase border w-full max-w-default",
+          "max-sm:h-[75vh] h-hero uppercase border w-full max-w-default",
           "max-sm:max-w-full",
           "p-8 max-sm:p-4 overflow-hidden",
           sectionTheme === "light" ? "border-black" : "border-white"
