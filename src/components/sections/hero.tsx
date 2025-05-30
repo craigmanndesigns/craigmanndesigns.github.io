@@ -80,11 +80,11 @@ const Hero: React.FC<HeroProps> = ({ blok, sectionTheme }) => {
         clsx(
           "max-sm:h-[75vh] h-hero uppercase border w-full max-w-default",
           "max-sm:max-w-full",
-          "p-8 max-sm:p-4 overflow-hidden",
+          "p-10 max-sm:p-4 overflow-hidden",
           sectionTheme === "light" ? "border-black" : "border-white"
         )}
     >
-      <div className={clsx('flex flex-col justify-end w-full h-full')}
+      <div className={clsx('flex flex-col text-center justify-center items-center w-full h-full')}
         onMouseMove={onMouseMove}
         onMouseLeave={onMouseLeave}
         style={{
