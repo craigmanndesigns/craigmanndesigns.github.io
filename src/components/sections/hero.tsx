@@ -113,7 +113,7 @@ const Hero: React.FC<HeroProps> = ({ blok, sectionTheme }) => {
               />
             </h1>
           </div>
-          {
+          {blok.headerItems &&
             blok.headerItems.map((blok, index) => (
               <StoryblokComponent blok={blok} id={`moon-${index + 1}`} delay={`${index + 1 * 2}s`} />
             ))
