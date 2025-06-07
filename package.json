@@ -10,7 +10,7 @@
     "crypto": false
   },
   "scripts": {
-    "develop": "gatsby clean && gatsby develop",
+    "dev": "gatsby clean && gatsby develop",
     "deploy": "gatsby build && gh-pages -d public",
     "start": "gatsby develop",
     "build": "gatsby build",

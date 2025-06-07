@@ -236,6 +236,48 @@ button:hover .butt {
   transition: all 0.5s ease-in-out;
 }
 
+@property --angle {
+  syntax: '<angle>';
+  inherits: true;
+  initial-value: 0deg;
+}
+
+@property --z {
+  syntax: '<integer>';
+  inherits: true;
+  initial-value: 0;
+}
+
+@keyframes revolve {
+  from {
+    --angle: 0deg;
+    --z: 0;
+  }
+
+  to {
+    --angle: 360deg;
+    --z: -1;
+  }
+}
+
+.moon {
+  --x-amplitude: 30vw;
+  --y-amplitude: 20vh;
+  --x: calc(cos(var(--angle)) * var(--x-amplitude));
+  --y: calc(sin(var(--angle)) * var(--y-amplitude));
+  transform:
+    rotate(var(--rotation)) translate(var(--x), var(--y)) rotate(calc(var(--rotation) * -1));
+  z-index: calc(var(--z));
+  /* calc() is for Safari */
+  animation: revolve 12s linear infinite;
+}
+
+.moon {
+  --rotation: 0deg;
+  animation-delay: 0s;
+}
+
+
 @media not all and (min-width: 769px) {
 
   h1,
@@ -254,6 +296,12 @@ button:hover .butt {
   h3.scrolling-header {
     font-size: 8rem;
     line-height: 10rem;
+  }
+
+  .moon {
+    --x-amplitude: 40vw;
+    --y-amplitude: 35vh;
+    animation: revolve 15s linear infinite;
   }
 }
 
@@ -291,5 +339,9 @@ button:hover .butt {
   h3.scrolling-header {
     font-size: 8rem;
     line-height: 15rem;
+  }
+
+  .moon {
+    display: none;
   }
 }

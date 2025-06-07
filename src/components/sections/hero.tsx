@@ -35,7 +35,7 @@ const Hero: React.FC<HeroProps> = ({ blok, sectionTheme }) => {
   const [perspective, setPerspective] = useState({ x: 0, y: 0 });
   const [isHover, setIsHover] = useState(false);
   const [shadowStyle, setShadowStyle] = useState({ textShadow: 'calc(-0.02em*(1 + 0}))) calc(.02em*(1 + 0)) 0 var(--accent-color)' });
-
+  const [animationDelay, setAniationDislay] = useState({ animationDelay: '0s' })
 
   const onMouseMove = useCallback(
     throttle((e: MouseEvent<HTMLDivElement> | TouchEvent<HTMLDivElement>) => {
@@ -72,6 +72,7 @@ const Hero: React.FC<HeroProps> = ({ blok, sectionTheme }) => {
     });
   }, [perspective]);
 
+
   return (
     <div
       {...storyblokEditable(blok)}
@@ -84,36 +85,42 @@ const Hero: React.FC<HeroProps> = ({ blok, sectionTheme }) => {
           sectionTheme === "light" ? "border-black" : "border-white"
         )}
     >
-      <div className={clsx('flex flex-col text-center justify-center items-center w-full h-full')}
+      <div className={clsx('flex flex-col text-center justify-center items-center w-full h-full relative')}
         onMouseMove={onMouseMove}
         onMouseLeave={onMouseLeave}
         style={{
           transform: `perspective(1000px) rotateX(${rotate.x}deg) rotateY(${rotate.y}deg) scale3d(1, 1, 1)`,
           transition: "all 400ms cubic-bezier(0.03, 0.98, 0.52, 0.99) 0s",
-        }}
-      >
-        <div>
-          <h3>Craig Mann</h3>
-          <h1 style={shadowStyle}>{blok.h1}</h1>
-          <h1 style={shadowStyle}>
-            <RandomReveal
-              isPlaying={true}
-              duration={Infinity}
-              revealDuration={2}
-              updateInterval={2.5}
-              characters={" "}
-              characterSet={
-                [
-                  "Developer",
-                  "Designer",
-                  "Manager",
-                  "Systems",
-                ]}
-            />
-          </h1>
+        }}>
+        <div className={clsx("grid place-items-center min-h-[100vh] m-0 max-w-[1120px]")}>
+          <div className={clsx("content")}>
+            <h3>Craig Mann</h3>
+            <h1 style={shadowStyle}>{blok.h1}</h1>
+            <h1 style={shadowStyle}>
+              <RandomReveal
+                isPlaying={true}
+                duration={Infinity}
+                revealDuration={2}
+                updateInterval={2.5}
+                characters={" "}
+                characterSet={
+                  [
+                    "Developer",
+                    "Designer",
+                    "Manager",
+                    "Systems",
+                  ]}
+              />
+            </h1>
+          </div>
+          {
+            blok.headerItems.map((blok, index) => (
+              <StoryblokComponent blok={blok} id={`moon-${index + 1}`} delay={`${index + 1 * 2}s`} />
+            ))
+          }
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
