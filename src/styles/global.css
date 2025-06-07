@@ -269,7 +269,7 @@ button:hover .butt {
     rotate(var(--rotation)) translate(var(--x), var(--y)) rotate(calc(var(--rotation) * -1));
   z-index: calc(var(--z));
   /* calc() is for Safari */
-  animation: revolve 12s linear infinite;
+  animation: revolve 11s linear infinite;
 }
 
 .moon {
