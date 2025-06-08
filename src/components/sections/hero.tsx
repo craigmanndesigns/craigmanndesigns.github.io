@@ -68,7 +68,7 @@ const Hero: React.FC<HeroProps> = ({ blok, sectionTheme }) => {
     setShadowStyle({
       '--perspective-x': `${perspective.x}`,
       '--perspective-y': `${perspective.y}`,
-      textShadow: `calc(-0.02em*(1 + var(--perspective-y))) calc(.02em*(1 + var(--perspective-x))) 0 var(--accent-color)`
+      textShadow: `calc(-0.02em*(1 + var(--perspective-y))) calc(.02em*(1 + var(--perspective-x))) 0 var(--accent-color)`,
     });
   }, [perspective]);
 
@@ -115,7 +115,7 @@ const Hero: React.FC<HeroProps> = ({ blok, sectionTheme }) => {
           </div>
           {blok.headerItems &&
             blok.headerItems.map((blok, index) => (
-              <StoryblokComponent blok={blok} id={`moon-${index + 1}`} delay={`${index + 1 * 2}s`} />
+              <StoryblokComponent blok={blok} id={`moon-${index + 1}`} delay={`${index + 1 * 4}s`} perspective={perspective} />
             ))
           }
         </div>

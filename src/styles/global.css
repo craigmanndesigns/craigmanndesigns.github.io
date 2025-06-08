@@ -5,6 +5,8 @@
 :root {
   --main-bg-color: pink;
   --accent-color: #61e8d3;
+  --neutral-black-color: #1b1b1b;
+  --accent-transp-color: rgba(97, 232, 212, 0.658);
 }
 
 
@@ -261,19 +263,20 @@ button:hover .butt {
 }
 
 .moon {
-  --x-amplitude: 30vw;
-  --y-amplitude: 20vh;
+  margin-top: 15%;
+  --x-amplitude: 35vw;
+  --y-amplitude: 25vh;
   --x: calc(cos(var(--angle)) * var(--x-amplitude));
   --y: calc(sin(var(--angle)) * var(--y-amplitude));
   transform:
     rotate(var(--rotation)) translate(var(--x), var(--y)) rotate(calc(var(--rotation) * -1));
   z-index: calc(var(--z));
   /* calc() is for Safari */
-  animation: revolve 11s linear infinite;
+  animation: revolve 24s linear infinite;
 }
 
 .moon {
-  --rotation: 0deg;
+  --rotation: -12deg;
   animation-delay: 0s;
 }
 
