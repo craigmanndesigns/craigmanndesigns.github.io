@@ -72,7 +72,7 @@ const Hero: React.FC<HeroProps> = ({ blok, sectionTheme }) => {
     });
   }, [perspective]);
 
-
+  console.log(blok.animated_title)
   return (
     <div
       {...storyblokEditable(blok)}
@@ -81,11 +81,11 @@ const Hero: React.FC<HeroProps> = ({ blok, sectionTheme }) => {
         clsx(
           "max-sm:h-[75vh] h-hero uppercase border w-full max-w-default",
           "max-sm:max-w-full",
-          "p-10 max-sm:p-4 overflow-hidden",
+          "overflow-hidden",
           sectionTheme === "light" ? "border-black" : "border-white"
         )}
     >
-      <div className={clsx('flex flex-col text-center justify-center items-center w-full h-full relative')}
+      <div className={clsx('flex flex-col text-center justify-center items-center w-full h-full relative p-10 max-sm:p-4')}
         onMouseMove={onMouseMove}
         onMouseLeave={onMouseLeave}
         style={{
@@ -96,7 +96,7 @@ const Hero: React.FC<HeroProps> = ({ blok, sectionTheme }) => {
           <div className={clsx("content")}>
             <h3>Craig Mann</h3>
             <h1 style={shadowStyle}>{blok.h1}</h1>
-            <h1 style={shadowStyle}>
+            {blok.animated_title && <h1 style={shadowStyle}>
               <RandomReveal
                 isPlaying={true}
                 duration={Infinity}
@@ -111,7 +111,7 @@ const Hero: React.FC<HeroProps> = ({ blok, sectionTheme }) => {
                     "Systems",
                   ]}
               />
-            </h1>
+            </h1>}
           </div>
           {blok.headerItems &&
             blok.headerItems.map((blok, index) => (

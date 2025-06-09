@@ -29,10 +29,10 @@ const Section = ({ blok, mainContent }) => {
     setIsAnimated(
       blok.id === "work"
         ? {
-            transform: isInView ? "translateY(0rem)" : "translateY(5rem)",
-            opacity: isInView ? 1 : 0,
-            transition: "all 1s ease-in-out",
-          }
+          transform: isInView ? "translateY(0rem)" : "translateY(5rem)",
+          opacity: isInView ? 1 : 0,
+          transition: "all 1s ease-in-out",
+        }
         : { opacity: 1 }
     );
   }, [
