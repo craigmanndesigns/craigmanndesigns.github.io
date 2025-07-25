@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
 import { storyblokEditable, StoryblokComponent } from "gatsby-source-storyblok";
-import { render } from "storyblok-rich-text-react-renderer";
 import clsx from "clsx";
 import { Link } from "gatsby-link";
 
@@ -26,9 +25,9 @@ const Card = ({ blok, isAnimated, sectionTheme, animatedContent }) => {
     if (animatedContent) {
       animate(
         ref.current,
-        isAnimated && { opacity: 1, transform: "translateY(-2rem)" },
+        isAnimated && { opacity: 1, transform: "translateY(-5rem)" },
         {
-          duration: 0.5,
+          duration: 2,
           delay: isAnimated ? staggerCards : 0,
         }
       );
@@ -40,7 +39,7 @@ const Card = ({ blok, isAnimated, sectionTheme, animatedContent }) => {
       key={blok._uid}
       className={clsx(
         "card overflow-hidden",
-        "flex flex-col justify-end lg:col-half aspect-square rounded-2xl h-fit",
+        "flex flex-col justify-end lg:col-half aspect-square rounded-md h-fit",
         "md:col-quarter",
         "max-sm:col-sixth border border-light-slate",
         cardWidth === "half" && "lg:col-half",
@@ -67,12 +66,9 @@ const Card = ({ blok, isAnimated, sectionTheme, animatedContent }) => {
         {blok.tags.map((blok) => (
           <StoryblokComponent blok={blok} sectionTheme={sectionTheme} isHover={isHover} />
         ))}
-        <div className={clsx("py-3 px-4 rounded-md", "bg-white opacity-100", "transition-all duration-500 ease-in-out",
-          // isHover && "opacity-100"
-        )}>
+        <div className={clsx("py-3 px-4", "border border-black color-black bg-white opacity-100", "transition-all duration-500 ease-in-out")}>
           <h4 className={clsx("break-word m-0 text-black")}>{blok.title}</h4>
         </div>
-        {/* <div className={clsx("text-light-slate")}>{render(blok.body)}</div> */}
 
       </div>
 

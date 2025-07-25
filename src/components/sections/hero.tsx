@@ -2,6 +2,7 @@ import React, { useState, MouseEvent, TouchEvent, useCallback, useEffect } from 
 import { storyblokEditable, StoryblokComponent } from "gatsby-source-storyblok";
 import clsx from "clsx";
 import { RandomReveal } from "react-random-reveal";
+import Sparkle from "../../images/stars.svg"
 
 interface HeroProps extends StoryblokComponent {
   blok: {
@@ -84,6 +85,11 @@ const Hero: React.FC<HeroProps> = ({ blok, sectionTheme }) => {
           sectionTheme === "light" ? "border-black" : "border-white"
         )}
     >
+      <Sparkle className={clsx('stars', 'hidden lg:block', 'absolute w-[4rem]', 'right-[20%] top-[16%]')} />
+      <Sparkle className={clsx('smallstars', 'hidden lg:block', 'absolute w-[2rem]', 'left-[25%] top-[30%]')} />
+      <Sparkle className={clsx('smallstars stardelay', 'hidden lg:block', 'absolute w-[2rem]', 'right-[25%] top-[45%]')} />
+      <Sparkle className={clsx('stars stardelay', 'hidden lg:block', 'absolute w-[3rem]', 'left-[8%] bottom-[10%]')} />
+
       <div className={clsx('flex flex-col text-center justify-center items-center w-full h-full relative p-10 max-sm:p-4')}
         onMouseMove={onMouseMove}
         onMouseLeave={onMouseLeave}
@@ -91,6 +97,8 @@ const Hero: React.FC<HeroProps> = ({ blok, sectionTheme }) => {
           transform: `perspective(1000px) rotateX(${rotate.x}deg) rotateY(${rotate.y}deg) scale3d(1, 1, 1)`,
           transition: "all 400ms cubic-bezier(0.03, 0.98, 0.52, 0.99) 0s",
         }}>
+        {/* <Sparkle className={clsx('stars', 'absolute w-[4rem]', 'right-[20%] top-[16%]')} /> */}
+
         <div className={clsx("grid place-items-center min-h-[100vh] m-0 max-w-[1120px]")}>
           <div className={clsx("content")}>
             <h3>Craig Mann</h3>

@@ -280,6 +280,54 @@ button:hover .butt {
   animation-delay: 0s;
 }
 
+.stars {
+  animation: float 8s ease-in-out infinite;
+}
+
+.smallstars {
+  animation: float 5s ease-in-out infinite;
+
+}
+
+.stardelay {
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0% {
+    /* transform: translate(0, 0); */
+    transform: perspective(0px) translate(0, 0) rotateX(-0.2deg) rotateY(-0.2deg);
+  }
+
+  50% {
+    /* transform: translate(1rem, 2rem); */
+    transform: perspective(16px) translate(0.5rem, 2rem) rotateX(0.2deg) rotateY(0.2deg);
+  }
+
+  100% {
+    /* transform: translate(0, 0); */
+    transform: perspective(0px) translate(0, 0) rotateX(-0.2deg) rotateY(-0.2deg);
+
+  }
+}
+
+@keyframes smallfloat {
+  0% {
+    /* transform: translate(0, 0); */
+    transform: perspective(0px) translate(0, 0) rotateX(-0.2deg) rotateY(-0.2deg);
+  }
+
+  50% {
+    /* transform: translate(1rem, 2rem); */
+    transform: perspective(16px) translate(0rem, 2rem) rotateX(0.3deg) rotateY(0.3deg);
+  }
+
+  100% {
+    /* transform: translate(0, 0); */
+    transform: perspective(0px) translate(0, 0) rotateX(-0.2deg) rotateY(-0.2deg);
+
+  }
+}
 
 @media not all and (min-width: 769px) {
 

@@ -8,14 +8,14 @@ const Tag = ({ blok, sectionTheme, isHover }) => {
 
   useEffect(() => {
     sectionTheme === "light"
-      ? setTagStyle("bg-white text-black")
-      : setTagStyle("bg-black text-white");
+      ? setTagStyle("bg-black text-black")
+      : setTagStyle("bg-white text-white");
   }, [sectionTheme]);
   console.log(isHover)
 
   return (
     <div {...storyblokEditable(blok)} className={clsx("flex justify-center")}>
-      <div className={clsx(tagStyle, "tag", "py-3 px-4 text-xl font-bold rounded-md", "transition-all duration-500 ease-in-out", isHover ? "opacity-100" : "opacity-0 translate-y-full")}>{blok.text}</div>
+      <div className={clsx("border border-white color-white font-bold", "p-4 bg-black uppercase", "transition-all duration-500 ease-in-out", isHover ? "opacity-100" : "opacity-0 translate-y-full")}>{blok.text}</div>
     </div>
   );
 };
