@@ -72,7 +72,6 @@ const Hero: React.FC<HeroProps> = ({ blok, sectionTheme }) => {
     });
   }, [perspective]);
 
-  console.log(blok.animated_title)
   return (
     <div
       {...storyblokEditable(blok)}

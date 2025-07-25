@@ -12,6 +12,7 @@ const Card = ({ blok, isAnimated, sectionTheme, animatedContent }) => {
   const staggerCards = stagger(0.5, { startDelay: 0.5 });
   const [url, setURL] = useState("/" + blok.link.cached_url);
   const [isHover, setIsHover] = useState(false);
+  const [bgImage, setBgImage] = useState('');
 
   function onMouseEnter() {
     setIsHover(true);
@@ -38,10 +39,10 @@ const Card = ({ blok, isAnimated, sectionTheme, animatedContent }) => {
       {...storyblokEditable(blok)}
       key={blok._uid}
       className={clsx(
-        "card",
-        "flex flex-col justify-end lg:col-default rounded h-fit",
+        "card overflow-hidden",
+        "flex flex-col justify-end lg:col-half aspect-square rounded-2xl h-fit",
         "md:col-quarter",
-        "max-sm:col-sixth max-sm:border max-sm:border-light-slate",
+        "max-sm:col-sixth border border-light-slate",
         cardWidth === "half" && "lg:col-half",
         cardWidth === "quarter" && "lg:col-quarter md:col-quarter",
         cardWidth === "full-width" && "col-full",
@@ -56,33 +57,25 @@ const Card = ({ blok, isAnimated, sectionTheme, animatedContent }) => {
       {isHover && blok.link.cached_url === "" ? renderOverlay() : <></>}
       {/* {renderOverlay()} */}
       {blok.image.filename && (
-        <div className={clsx("p-2")}>
-          <img src={blok.image.filename} className={clsx("width-full")}></img>
+        <div className={clsx("h-full")}>
+          <div
+            style={{ '--image-url': `url(${blok.image.filename})` }}
+            className='bg-[image:var(--image-url)] bg-cover bg-center w-full h-full' />
         </div>
       )}
-      <div className={clsx("p-2")}>
-        <div
-          className={clsx(
-            "flex justify-between justify-middle items-center",
-            "gap-x-2 mb-4"
-            // "max-sm:flex-col max-sm:items-start"
-          )}
-        >
-          <h4 className={clsx("break-word m-0")}>{blok.title}</h4>
-          <div
-            className={clsx(
-              "flex flex-wrap ",
-              "max-sm:flex-nowrap max-sm: gap-2",
-              "justify-end"
-            )}
-          >
-            {blok.tags.map((blok) => (
-              <StoryblokComponent blok={blok} sectionTheme={sectionTheme} />
-            ))}
-          </div>
+      <div className={clsx("absolute left-4 bottom-4 flex flex-col items-start gap-2")}>
+        {blok.tags.map((blok) => (
+          <StoryblokComponent blok={blok} sectionTheme={sectionTheme} isHover={isHover} />
+        ))}
+        <div className={clsx("py-3 px-4 rounded-md", "bg-white opacity-100", "transition-all duration-500 ease-in-out",
+          // isHover && "opacity-100"
+        )}>
+          <h4 className={clsx("break-word m-0 text-black")}>{blok.title}</h4>
         </div>
-        <div className={clsx("text-light-slate")}>{render(blok.body)}</div>
+        {/* <div className={clsx("text-light-slate")}>{render(blok.body)}</div> */}
+
       </div>
+
     </Link>
   );
   function renderOverlay() {
