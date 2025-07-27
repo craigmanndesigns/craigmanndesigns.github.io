@@ -263,7 +263,7 @@ button:hover .butt {
 }
 
 .moon {
-  margin-top: 15%;
+  margin-top: 10%;
   --x-amplitude: 35vw;
   --y-amplitude: 25vh;
   --x: calc(cos(var(--angle)) * var(--x-amplitude));

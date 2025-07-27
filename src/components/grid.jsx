@@ -4,7 +4,7 @@ import clsx from "clsx";
 // import Lightbox from "react-awesome-lightbox";
 // You need to import the CSS only once
 // import "react-awesome-lightbox/build/style.css";
-import { useInView } from "framer-motion";
+import { useInView, animate, stagger } from "framer-motion";
 
 const Grid = ({ blok, sectionTheme }) => {
   const [isAnimated, setIsAnimated] = useState(false);
@@ -44,6 +44,20 @@ const Grid = ({ blok, sectionTheme }) => {
   const handleShowModal = () => {
     setOpenModal(false);
   };
+
+  useEffect(() => {
+
+    animate(
+      ".card",
+      isAnimated && { opacity: 1, transform: "translateY(-5rem)" },
+      {
+        duration: 2,
+        delay: stagger(0.1, { startDelay: 0.2 })
+      }
+    );
+
+  }, [isAnimated, animatedContent]);
+
   return (
     <div
       {...storyblokEditable(blok)}

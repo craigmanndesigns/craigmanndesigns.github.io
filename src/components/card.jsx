@@ -8,7 +8,7 @@ import { animate, stagger } from "framer-motion";
 const Card = ({ blok, isAnimated, sectionTheme, animatedContent }) => {
   const cardWidth = blok.width;
   const ref = useRef(null);
-  const staggerCards = stagger(0.5, { startDelay: 0.5 });
+  const staggerCards = stagger(1, { startDelay: 0.5 });
   const [url, setURL] = useState("/" + blok.link.cached_url);
   const [isHover, setIsHover] = useState(false);
   const [bgImage, setBgImage] = useState('');
@@ -21,18 +21,18 @@ const Card = ({ blok, isAnimated, sectionTheme, animatedContent }) => {
     setIsHover(false);
   }
 
-  useEffect(() => {
-    if (animatedContent) {
-      animate(
-        ref.current,
-        isAnimated && { opacity: 1, transform: "translateY(-5rem)" },
-        {
-          duration: 2,
-          delay: isAnimated ? staggerCards : 0,
-        }
-      );
-    }
-  }, [isAnimated, animatedContent]);
+  // useEffect(() => {
+  //   if (animatedContent) {
+  //     animate(
+  //       ref.current,
+  //       isAnimated && { opacity: 1, transform: "translateY(-5rem)" },
+  //       {
+  //         duration: 2,
+  //         delay: isAnimated ? staggerCards : 0,
+  //       }
+  //     );
+  //   }
+  // }, [isAnimated, animatedContent]);
   return (
     <Link
       {...storyblokEditable(blok)}
