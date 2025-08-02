@@ -16,7 +16,7 @@
   margin-block-start: 0;
   margin-block-end: 0;
   cursor: none;
-  cursor: url("../images/cursor.svg") 3 3, auto;
+  cursor: url("/cursor.svg") 3 3, auto;
 }
 
 *,
@@ -196,7 +196,7 @@ footer {
   pointer-events: none;
   will-change: transform;
   border-radius: var(--radius);
-  cursor: url("../images/cursor.svg") 3 3, auto;
+  cursor: url("/cursor.svg") 3 3, auto;
 
   @media (pointer: fine) {
     display: block;
