@@ -6,6 +6,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import clsx from "clsx";
 
 import CookieConsent from "react-cookie-consent";
+import AnimatedCursor from "react-animated-cursor"
 
 import BrutalTheme from "../styles/brutal_theme";
 
@@ -24,7 +25,8 @@ import ButtonWrapper from "../components/sections/button_wrapper";
 import Separator from "../components/separator";
 import Tag from "../components/tag";
 import configuration from "../../gatsby-config";
-import Cursor from "../components/cursor";
+// import Cursor from "../components/cursor";
+
 import WorkHero from "../components/sections/work_hero";
 import ContentSection from "../components/sections/contentSection";
 import ListItem from "../components/list_item";
@@ -90,7 +92,42 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Cursor />
+      {/* <Cursor /> */}
+      <AnimatedCursor
+        innerSize={0}
+        outerSize={24}
+        color='255, 255, 255'
+        outerAlpha={0.75}
+        innerScale={0.7}
+        outerScale={2}
+        outerStyle={{
+          mixBlendMode: 'exclusion'
+        }}
+      // clickables={[
+      //   'a',
+      //   'input[type="text"]',
+      //   'input[type="email"]',
+      //   'input[type="number"]',
+      //   'input[type="submit"]',
+      //   'input[type="image"]',
+      //   'label[for]',
+      //   'select',
+      //   'textarea',
+      //   'button',
+      //   '.link',
+      //   {
+      //     target: '.custom',
+      //     options: {
+      //       innerSize: 12,
+      //       outerSize: 12,
+      //       color: '255, 255, 255',
+      //       outerAlpha: 0.3,
+      //       innerScale: 0.7,
+      //       outerScale: 5
+      //     }
+      //   }
+      // ]}
+      />
       <BrutalTheme>
         <CookieConsent
           style={{

@@ -21,18 +21,6 @@ const Card = ({ blok, isAnimated, sectionTheme, animatedContent }) => {
     setIsHover(false);
   }
 
-  // useEffect(() => {
-  //   if (animatedContent) {
-  //     animate(
-  //       ref.current,
-  //       isAnimated && { opacity: 1, transform: "translateY(-5rem)" },
-  //       {
-  //         duration: 2,
-  //         delay: isAnimated ? staggerCards : 0,
-  //       }
-  //     );
-  //   }
-  // }, [isAnimated, animatedContent]);
   return (
     <Link
       {...storyblokEditable(blok)}
@@ -56,7 +44,7 @@ const Card = ({ blok, isAnimated, sectionTheme, animatedContent }) => {
       {isHover && blok.link.cached_url === "" ? renderOverlay() : <></>}
       {/* {renderOverlay()} */}
       {blok.image.filename && (
-        <div className={clsx("h-full")}>
+        <div className={clsx("h-full scale-100 hover:scale-125", "transition-all duration-500 ease-in-out")}>
           <div
             style={{ '--image-url': `url(${blok.image.filename})` }}
             className='bg-[image:var(--image-url)] bg-cover bg-center w-full h-full' />
