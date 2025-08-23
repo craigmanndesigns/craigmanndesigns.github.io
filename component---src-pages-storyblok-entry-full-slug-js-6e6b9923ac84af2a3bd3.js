@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkbrutalism_cmd=self.webpackChunkbrutalism_cmd||[]).push([[595],{1339:function(e,t,n){n.r(t);var a=n(6540),c=n(53),l=n(7539),s=n(5195);t.default=e=>{let{data:t}=e,n=t.storyblokEntry;n=(0,l.kY)(n);const r=n.content.body.map((e=>a.createElement(l.Dp,{blok:e,key:e._uid})));return a.createElement(s.A,null,a.createElement("div",Object.assign({},(0,l.K1)(n.content),{className:(0,c.A)("cont")}),r))}}}]);
-//# sourceMappingURL=component---src-pages-storyblok-entry-full-slug-js-6e6b9923ac84af2a3bd3.js.map
