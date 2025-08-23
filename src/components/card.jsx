@@ -26,14 +26,14 @@ const Card = ({ blok, isAnimated, sectionTheme, animatedContent }) => {
       {...storyblokEditable(blok)}
       key={blok._uid}
       className={clsx(
-        "card overflow-hidden",
+        "card overflow-hidden relative",
         "flex flex-col justify-end lg:col-half aspect-square rounded-md h-fit",
         "md:col-quarter",
         "max-sm:col-sixth border border-light-slate",
         cardWidth === "half" && "lg:col-half",
         cardWidth === "quarter" && "lg:col-quarter md:col-quarter",
         cardWidth === "full-width" && "col-full",
-        sectionTheme === "light" ? "hover:bg-black10" : "hover:bg-dark-slate",
+        // sectionTheme === "light" ? "hover:bg-black10" : "hover:bg-dark-slate",
         animatedContent && "opacity-0 translate-y-0"
       )}
       ref={ref}
@@ -41,16 +41,17 @@ const Card = ({ blok, isAnimated, sectionTheme, animatedContent }) => {
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      {isHover && blok.link.cached_url === "" ? renderOverlay() : <></>}
-      {/* {renderOverlay()} */}
+
       {blok.image.filename && (
         <div className={clsx("h-full scale-100 hover:scale-125", "transition-all duration-500 ease-in-out")}>
+          {isHover ? renderOverlay() : <></>}
+
           <div
             style={{ '--image-url': `url(${blok.image.filename})` }}
             className='bg-[image:var(--image-url)] bg-cover bg-center w-full h-full' />
         </div>
       )}
-      <div className={clsx("absolute left-4 bottom-4 flex flex-col items-start gap-2")}>
+      <div className={clsx("absolute left-4 bottom-4 flex flex-col items-start gap-2", "pointer-events-none")}>
         {blok.tags.map((blok) => (
           <StoryblokComponent blok={blok} sectionTheme={sectionTheme} isHover={isHover} />
         ))}
@@ -66,10 +67,9 @@ const Card = ({ blok, isAnimated, sectionTheme, animatedContent }) => {
     return (
       <div
         className={clsx(
-          "absolute w-full h-full top-0 left-0 flex items-center justify-center bg-black80"
+          "absolute w-full h-full top-0 left-0 flex items-center justify-center bg-black80 z-10", "opacity-0 hover:opacity-75", "transition-all duration-500 ease-in-out"
         )}
       >
-        <span className={clsx("p-2 bg-white text-black")}>Coming soon</span>
       </div>
     );
   }

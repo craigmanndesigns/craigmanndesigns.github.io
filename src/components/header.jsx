@@ -6,7 +6,7 @@ import clsx from "clsx";
 import { RandomReveal } from "react-random-reveal";
 
 const Header = ({ blok, isInView, mainContent, sectionTheme }) => {
-  const [isScrolling, setIsScrolling] = useState();
+  const [isScrolling, setIsScrolling] = useState(false);
   const [isHover, setIsHover] = useState(false);
   const [animateHeader, setAnimateHeader] = useState(false);
   const [animatedHeader, setAnimatedHeader] = useState(<></>);
@@ -58,7 +58,6 @@ const Header = ({ blok, isInView, mainContent, sectionTheme }) => {
         "max-sm:text-center",
         "overflow-x-hidden",
         isScrolling && "group",
-        "min-h-[15rem]",
       ])}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
@@ -66,13 +65,13 @@ const Header = ({ blok, isInView, mainContent, sectionTheme }) => {
       <div
         className={clsx(
           isScrolling
-            ? "min-h-scroll flex w-fit max-md:min-h-scrollTab"
+            ? "overflow-hidden flex w-fit max-md:min-h-scrollTab"
             : "flex flex-col max-sm:items-center gap-8",
           alignedText,
           textAlign
         )}
       >
-        {isScrolling ? renderScrollingHeader() : renderStaticHeader()}
+        {renderStaticHeader()}
       </div>
     </div>
   );
