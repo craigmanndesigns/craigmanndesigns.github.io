@@ -5,6 +5,8 @@ import { Link } from "gatsby-link";
 
 import { animate, stagger } from "framer-motion";
 
+import { East } from "@mui/icons-material";
+
 const Card = ({ blok, isAnimated, sectionTheme, animatedContent }) => {
   const cardWidth = blok.width;
   const ref = useRef(null);
@@ -45,7 +47,6 @@ const Card = ({ blok, isAnimated, sectionTheme, animatedContent }) => {
       {blok.image.filename && (
         <div className={clsx("h-full scale-100 hover:scale-125", "transition-all duration-500 ease-in-out")}>
           {isHover ? renderOverlay() : <></>}
-
           <div
             style={{ '--image-url': `url(${blok.image.filename})` }}
             className='bg-[image:var(--image-url)] bg-cover bg-center w-full h-full' />
@@ -55,22 +56,32 @@ const Card = ({ blok, isAnimated, sectionTheme, animatedContent }) => {
         {blok.tags.map((blok) => (
           <StoryblokComponent blok={blok} sectionTheme={sectionTheme} isHover={isHover} />
         ))}
-        <div className={clsx("py-3 px-4", "border border-black color-black bg-white opacity-100", "transition-all duration-500 ease-in-out")}>
-          <h4 className={clsx("break-word m-0 text-black")}>{blok.title}</h4>
+        <div className="flex items-stretch">
+          <div className={clsx("py-3 px-4", "border border-black color-black bg-white opacity-100", "transition-all duration-500 ease-in-out")}>
+            <h4 className={clsx("break-word m-0 text-black")}>{blok.title}</h4>
+          </div>
+          <div className={clsx("flex items-center text-white p-2 bg-black",
+            isHover ? "-translate-x-[0] scale-x-[1] opacity-1" : "-translate-x-[50%] scale-x-[0] opacity-0",
+            "transition-all duration-200 ease-in-out")}>
+            <East />
+          </div>
         </div>
-
       </div>
+
 
     </Link>
   );
   function renderOverlay() {
     return (
-      <div
-        className={clsx(
-          "absolute w-full h-full top-0 left-0 flex items-center justify-center bg-white z-10", "opacity-0 hover:opacity-25", "transition-all duration-500 ease-in-out"
-        )}
-      >
-      </div>
+      <>
+        <div
+          className={clsx(
+            "absolute w-full h-full top-0 left-0 flex items-center justify-center bg-white z-10", "opacity-0 hover:opacity-25", "transition-all duration-500 ease-in-out"
+          )}
+        >
+        </div>
+
+      </>
     );
   }
 };

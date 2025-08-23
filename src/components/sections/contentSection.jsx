@@ -88,11 +88,8 @@ const ContentSection = ({ blok }) => {
         ))}
       </div>
       <div className={clsx("col-sixth", onMobile ? "block" : "hidden")}>
-        <div className={clsx("border sticky top-20")}>
-          <h5 className={clsx("p-4 bg-black text-white border-b mb-2")}>
-            {blok.side_title}
-          </h5>
-          <div className={clsx("py-2")}>
+        <div className={clsx("sticky top-20")}>
+          <div className={clsx("")}>
             {blok.side_content.map((blok) => (
               <StoryblokComponent blok={blok} sectionTheme={sectionTheme} />
             ))}

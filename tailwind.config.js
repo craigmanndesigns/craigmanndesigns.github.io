@@ -31,7 +31,7 @@ module.exports = {
     maxWidth: {
       default: "calc(100vw - 2rem)",
       40: "50vw",
-      80: "80vw",
+      80: "75vw",
       full: "100%",
       scrollMob: "calc(100vw - 4rem)",
     },

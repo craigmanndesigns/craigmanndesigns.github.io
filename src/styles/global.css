@@ -62,9 +62,15 @@ h5 {
 
 a,
 .scrollButton {
-  font-family: "Oswald";
+  font-family: "Roboto";
   font-weight: 700;
   line-height: 100%;
+}
+
+
+.sub-item a {
+  font-family: "Roboto";
+  font-weight: 400;
 }
 
 .text-blk a {
@@ -142,6 +148,7 @@ a:focus {
 p {
   font-size: 1.125rem;
   margin-bottom: 1rem;
+  line-height: 2rem;
 }
 
 body {
