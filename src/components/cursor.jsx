@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import React, { useEffect } from "react";
+import { useMotionValue, useSpring } from "framer-motion";
 import clsx from "clsx";
 
-const Cursor = ({}) => {
+const Cursor = ({ }) => {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 

@@ -55,10 +55,24 @@ const Section = ({ blok, mainContent }) => {
   }, [blok.px_padding]);
 
   useEffect(() => {
-    setPaddingY(
-      blok.padding === "20" ? "py-20 max-md:py-8 max-sm:py-8" : "py-4"
-    );
-    setSpacing(blok.spacing === "20" ? "gap-20" : "gap-10");
+    if (blok.padding === "20") {
+      setPaddingY("py-20 max-md:py-8 max-sm:py-8")
+    }
+    if (blok.padding === "40") {
+      setPaddingY("py-40 max-md:py-8 max-sm:py-80")
+    }
+    else {
+      setPaddingY("py-4")
+    }
+    if (blok.spacing === "20") {
+      setSpacing("gap-20")
+    }
+    if (blok.spacing === "40") {
+      setSpacing("gap-40")
+    }
+    else {
+      setSpacing("gap-10")
+    }
     setHeight(
       blok.full_height ? "min-h-default max-md:min-h-defaultTab" : "px-12"
     );

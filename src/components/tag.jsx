@@ -11,7 +11,6 @@ const Tag = ({ blok, sectionTheme, isHover }) => {
       ? setTagStyle("bg-black text-black")
       : setTagStyle("bg-white text-white");
   }, [sectionTheme]);
-  console.log(isHover)
 
   return (
     <div {...storyblokEditable(blok)} className={clsx("flex justify-center")}>

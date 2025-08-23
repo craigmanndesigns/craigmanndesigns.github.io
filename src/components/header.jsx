@@ -124,7 +124,9 @@ const Header = ({ blok, isInView, mainContent, sectionTheme }) => {
             sectionTheme === "light" ? "text-wht" : "text-blk"
           )}
         >
-          {render(blok.text)}
+          <div className={clsx(sectionTheme === "light" ? "text-black80 light" : "text-light-slate dark")}>
+            {render(blok.text)}
+          </div>
         </div>
       </>
     );

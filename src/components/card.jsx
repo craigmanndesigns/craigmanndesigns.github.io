@@ -67,7 +67,7 @@ const Card = ({ blok, isAnimated, sectionTheme, animatedContent }) => {
     return (
       <div
         className={clsx(
-          "absolute w-full h-full top-0 left-0 flex items-center justify-center bg-black80 z-10", "opacity-0 hover:opacity-75", "transition-all duration-500 ease-in-out"
+          "absolute w-full h-full top-0 left-0 flex items-center justify-center bg-white z-10", "opacity-0 hover:opacity-25", "transition-all duration-500 ease-in-out"
         )}
       >
       </div>
