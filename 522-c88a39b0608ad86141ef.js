@@ -1,0 +1,1 @@
+(self.webpackChunkbrutalism_cmd=self.webpackChunkbrutalism_cmd||[]).push([[522],{8522:function(){}}]);
