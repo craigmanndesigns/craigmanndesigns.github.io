@@ -41,13 +41,13 @@ const Image = ({
       key={blok._uid}
       className={clsx(
         "card",
-        "flex flex-col justify-end lg:col-default rounded h-fit",
+        "flex flex-col justify-end lg:col-default rounded h-fit border border-white",
         "md:col-quarter",
         "max-sm:col-sixth max-sm:border max-sm:border-light-slate",
         cardWidth === "half" && "lg:col-half",
         cardWidth === "quarter" && "lg:col-quarter md:col-quarter",
         cardWidth === "full-width" && "col-full",
-        sectionTheme === "light" ? "hover:bg-black10" : "hover:bg-dark-slate",
+        sectionTheme === "light" ? "hover:bg-black10 hover:border-accent" : "hover:bg-dark-slate hover:border-accent",
         // isAnimated && "opacity-0 translate-y-0"
       )}
       ref={ref}

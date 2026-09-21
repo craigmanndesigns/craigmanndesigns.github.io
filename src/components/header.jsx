@@ -1,14 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { storyblokEditable, StoryblokComponent } from "gatsby-source-storyblok";
-import { render } from "storyblok-rich-text-react-renderer";
+import { render, NODE_HEADING } from "storyblok-rich-text-react-renderer";
 import clsx from "clsx";
-
 import { RandomReveal } from "react-random-reveal";
+
+const slugify = (text) => {
+  return String(text)
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/[^\w\-]+/g, "")
+    .replace(/\-\-+/g, "-");
+};
+
+const getPlainText = (children) => {
+  if (!children) return "";
+  if (typeof children === "string" || typeof children === "number") return children;
+  if (Array.isArray(children)) return children.map(getPlainText).join("");
+  if (children.props && children.props.children) return getPlainText(children.props.children);
+  return "";
+};
 
 const Header = ({ blok, isInView, mainContent, sectionTheme }) => {
   const [isScrolling, setIsScrolling] = useState(false);
   const [isHover, setIsHover] = useState(false);
-  const [animateHeader, setAnimateHeader] = useState(false);
   const [animatedHeader, setAnimatedHeader] = useState(<></>);
 
   const [alignedText, setAlignedText] = useState("");
@@ -27,7 +42,6 @@ const Header = ({ blok, isInView, mainContent, sectionTheme }) => {
   }, [blok.isScrolling]);
 
   useEffect(() => {
-    isInView && setAnimateHeader(true);
     setAnimatedHeader(
       isInView ? (
         <RandomReveal isPlaying duration={1} characters={blok.animatedTitle} />
@@ -35,20 +49,51 @@ const Header = ({ blok, isInView, mainContent, sectionTheme }) => {
         <>{blok.animatedTitle}</>
       )
     );
-  }, [isInView]);
+  }, [isInView, blok.animatedTitle]);
+
   useEffect(() => {
     if (blok.alignment === "left") {
       setAlignedText("items-start");
       setTextAlign("text-left");
-    }
-    if (blok.alignment === "center") {
+    } else if (blok.alignment === "center") {
       setAlignedText("items-center");
       setTextAlign("text-center");
     } else if (blok.alignment === "right") {
       setAlignedText("items-end");
       setTextAlign("text-right");
     }
-  }, []);
+  }, [blok.alignment]);
+
+  // Attach IDs to H3 tags matching the slugify logic
+  const richTextOptions = {
+    nodeResolvers: {
+      [NODE_HEADING]: (children, { level }) => {
+        if (level === 2) {
+          const textContent = getPlainText(children);
+          const id = slugify(textContent);
+
+          return (
+            <h2 id={id} className="scroll-mt-24">
+              {children}
+            </h2>
+          );
+        }
+        if (level === 3) {
+          const textContent = getPlainText(children);
+          const id = slugify(textContent);
+
+          return (
+            <h3 id={id} className="scroll-mt-24">
+              {children}
+            </h3>
+          );
+        }
+        const Tag = `h${level}`;
+        return <Tag>{children}</Tag>;
+      },
+    },
+  };
+
   return (
     <div
       {...storyblokEditable(blok)}
@@ -76,46 +121,14 @@ const Header = ({ blok, isInView, mainContent, sectionTheme }) => {
     </div>
   );
 
-  function renderScrollingHeader() {
-    return (
-      <>
-        <div
-          className="relative animate-scroll"
-          style={
-            isHover
-              ? { animationPlayState: "paused" }
-              : { animationPlayState: "running" }
-          }
-        >
-          <h3 className={clsx("whitespace-nowrap", "scrolling-header")}>
-            {blok.animatedTitle}
-          </h3>
-          {blok.header_items.map((blok) => (
-            <StoryblokComponent blok={blok} />
-          ))}
-        </div>
-        <div
-          className="relative animate-scroll"
-          style={
-            isHover
-              ? { animationPlayState: "paused" }
-              : { animationPlayState: "running" }
-          }
-        >
-          <h3 className={clsx("whitespace-nowrap")}>{blok.animatedTitle}</h3>
-          {blok.header_items.map((blok) => (
-            <StoryblokComponent blok={blok} />
-          ))}
-        </div>
-      </>
-    );
-  }
   function renderStaticHeader() {
     return (
       <>
-        {blok.animatedTitle != "" && <h2>
-          <span className="accent">{animatedHeader}</span>
-        </h2>}
+        {blok.animatedTitle && (
+          <h2>
+            <span className="accent">{animatedHeader}</span>
+          </h2>
+        )}
         <div
           className={clsx(
             mainContent ? "max-w-80" : "max-w-40",
@@ -124,8 +137,12 @@ const Header = ({ blok, isInView, mainContent, sectionTheme }) => {
             sectionTheme === "light" ? "text-wht" : "text-blk"
           )}
         >
-          <div className={clsx(sectionTheme === "light" ? "text-black80 light" : "text-light-slate dark")}>
-            {render(blok.text)}
+          <div
+            className={clsx(
+              sectionTheme === "light" ? "text-black80 light" : "text-light-slate dark"
+            )}
+          >
+            {render(blok.text, richTextOptions)}
           </div>
         </div>
       </>

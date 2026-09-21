@@ -91,6 +91,7 @@ h1 {
 
 h2 {
   font-size: 4rem;
+  margin-bottom: 1.5rem;
 }
 
 h3 {
@@ -239,6 +240,13 @@ footer {
 }
 
 .dark .highlight {
+  color: #fff;
+}
+
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5 {
   color: #fff;
 }
 
