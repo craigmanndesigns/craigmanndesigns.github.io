@@ -25,7 +25,7 @@ const Navbar = ({ blok }) => {
   }, []);
 
   useEffect(() => {
-    if (windowWidth >= 420) {
+    if (windowWidth >= 800) {
       setRenderMenu(true);
     }
   }, [windowWidth]);

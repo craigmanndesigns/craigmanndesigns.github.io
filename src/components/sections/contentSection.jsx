@@ -26,7 +26,7 @@ const ContentSection = ({ blok }) => {
   const windowWidth = useWindowWidth();
 
   useEffect(() => {
-    if (windowWidth >= 420) {
+    if (windowWidth >= 800) {
       setOnMobile(true);
     }
   }, []);
@@ -73,8 +73,7 @@ const ContentSection = ({ blok }) => {
         className={clsx(
           "flex flex-col justify-center items-center w-full rounded-2xl col-content",
           "gap-20",
-          "max-md:col-full",
-          "max-sm:col-full"
+          "max-lg:col-full max-sm:col-full"
         )}
       >
         {blok.main.map((blok) => (
