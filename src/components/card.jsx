@@ -29,7 +29,7 @@ const Card = ({ blok, isAnimated, sectionTheme, animatedContent }) => {
       key={blok._uid}
       className={clsx(
         "card overflow-hidden relative",
-        "flex flex-col justify-end lg:col-half aspect-square rounded-md h-fit",
+        "flex flex-col justify-end xl:col-default lg:col-half aspect-square rounded-md h-fit",
         "md:col-quarter",
         "max-sm:col-sixth border border-light-slate",
         cardWidth === "half" && "lg:col-half",
