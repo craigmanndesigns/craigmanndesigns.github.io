@@ -26,7 +26,6 @@ const ListItem = ({ blok, sectionTheme }) => {
       setAnchorUrl(blok.link.cached_url);
     }
   }, []);
-  console.log(isSubItem)
   return (
     <div {...storyblokEditable(blok)} className={clsx("flex flex-col")}>
       <Link

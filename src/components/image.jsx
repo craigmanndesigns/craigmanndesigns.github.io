@@ -21,20 +21,20 @@ const Image = ({
     setOpenModal(true);
   };
 
-  useEffect(() => {
-    if (animatedContent) {
-      animate(
-        ref.current,
-        isAnimated && { opacity: 1, transform: "translateY(-2rem)" },
-        // ? { opacity: 1, transform: "translateY(-2rem)" }
-        // : { opacity: 0, transform: "translateY(0rem)" },
-        {
-          duration: 0.5,
-          delay: isAnimated ? staggerCards : 0,
-        }
-      );
-    }
-  }, [isAnimated, animatedContent]);
+  // useEffect(() => {
+  //   if (animatedContent) {
+  //     animate(
+  //       ref.current,
+  //       isAnimated && { opacity: 1, transform: "translateY(-2rem)" },
+  //       // ? { opacity: 1, transform: "translateY(-2rem)" }
+  //       // : { opacity: 0, transform: "translateY(0rem)" },
+  //       {
+  //         duration: 0.5,
+  //         delay: isAnimated ? staggerCards : 0,
+  //       }
+  //     );
+  //   }
+  // }, [isAnimated, animatedContent]);
   return (
     <div
       {...storyblokEditable(blok)}
@@ -48,7 +48,7 @@ const Image = ({
         cardWidth === "quarter" && "lg:col-quarter md:col-quarter",
         cardWidth === "full-width" && "col-full",
         sectionTheme === "light" ? "hover:bg-black10" : "hover:bg-dark-slate",
-        "opacity-0 translate-y-0"
+        // isAnimated && "opacity-0 translate-y-0"
       )}
       ref={ref}
       onClick={handleShowModal}

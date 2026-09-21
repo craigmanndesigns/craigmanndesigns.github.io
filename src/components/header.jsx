@@ -113,9 +113,9 @@ const Header = ({ blok, isInView, mainContent, sectionTheme }) => {
   function renderStaticHeader() {
     return (
       <>
-        <h3>
+        {blok.animatedTitle != "" && <h2>
           <span className="accent">{animatedHeader}</span>
-        </h3>
+        </h2>}
         <div
           className={clsx(
             mainContent ? "max-w-80" : "max-w-40",

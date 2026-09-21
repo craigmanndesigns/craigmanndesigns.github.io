@@ -44,19 +44,19 @@ const Grid = ({ blok, sectionTheme }) => {
   const handleShowModal = () => {
     setOpenModal(false);
   };
+  //   useEffect(() => {
+  // if (animatedContent) {
+  //     animate(
+  //       ".card",
+  //       isAnimated && { opacity: 1, transform: "translateY(-5rem)" },
+  //       {
+  //         duration: 2,
+  //         delay: stagger(0.1, { startDelay: 0.2 })
+  //       }
+  //     );
+  //   }
 
-  useEffect(() => {
-
-    animate(
-      ".card",
-      isAnimated && { opacity: 1, transform: "translateY(-5rem)" },
-      {
-        duration: 2,
-        delay: stagger(0.1, { startDelay: 0.2 })
-      }
-    );
-
-  }, [isAnimated, animatedContent]);
+  // }, [isAnimated, animatedContent]);
 
   return (
     <div
@@ -66,22 +66,25 @@ const Grid = ({ blok, sectionTheme }) => {
         "w-full grid lg:grid-cols-12 lg:gap-x-4 lg:gap-y-8 items-end",
         "md:grid-cols-6",
         "max-sm:grid-cols-2 max-sm:gap-y-12",
-        "mt-8"
-      )}
+        // "mt-8"
+      )
+      }
       ref={ref}
     >
-      {blok.columns.map((blok) => (
-        <StoryblokComponent
-          blok={blok}
-          isAnimated={isAnimated}
-          animatedContent={animatedContent}
-          setCurrentURL={setCurrentURL}
-          setOpenModal={setOpenModal}
-          sectionTheme={sectionTheme}
-        />
-      ))}
+      {
+        blok.columns.map((blok) => (
+          <StoryblokComponent
+            blok={blok}
+            isAnimated={isAnimated}
+            animatedContent={animatedContent}
+            setCurrentURL={setCurrentURL}
+            setOpenModal={setOpenModal}
+            sectionTheme={sectionTheme}
+          />
+        ))
+      }
       {openModal ? renderImageModal() : <></>}
-    </div>
+    </div >
   );
   function renderImageModal() {
     return (
