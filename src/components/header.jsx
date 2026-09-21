@@ -133,7 +133,7 @@ const Header = ({ blok, isInView, mainContent, sectionTheme }) => {
           className={clsx(
             mainContent ? "max-w-80" : "max-w-40",
             textAlign,
-            "max-sm:max-w-full max-sm:text-center",
+            "content max-sm:max-w-full max-sm:text-center",
             sectionTheme === "light" ? "text-wht" : "text-blk"
           )}
         >

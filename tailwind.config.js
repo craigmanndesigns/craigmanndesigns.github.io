@@ -45,7 +45,7 @@ module.exports = {
       quarter: "auto / span 3",
       full: "auto / span 12",
       sixth: "auto / span 2",
-      content: "auto / span 10",
+      content: "2 / span 8",
     },
     colors: {
       transparent: "transparent",

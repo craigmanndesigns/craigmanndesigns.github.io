@@ -119,7 +119,7 @@ const ContentSection = ({ blok }) => {
 
       {/* Sticky Side Bar / TOC Column */}
       <div className={clsx("col-sixth", onMobile ? "block" : "hidden")}>
-        <div className={clsx("sticky top-20 flex flex-col gap-6")}>
+        <div className={clsx("sticky top-4 flex flex-col gap-6")}>
           {/* Section-level Table of Contents */}
           {/* <TableOfContents items={tocItems} /> */}
           {blok.side_content?.map((blokItem) => (
@@ -130,17 +130,6 @@ const ContentSection = ({ blok }) => {
               items={tocItems}
             />
           ))}
-
-          {/* Additional Side Content from Storyblok */}
-          {/* <div>
-            {blok.side_content?.map((blokItem) => (
-              <StoryblokComponent
-                key={blokItem._uid}
-                blok={blokItem}
-                sectionTheme={sectionTheme}
-              />
-            ))}
-          </div> */}
         </div>
       </div>
     </section>
