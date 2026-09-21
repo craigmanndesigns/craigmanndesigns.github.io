@@ -23,6 +23,7 @@ import Button from "../components/button";
 import SocialMediaLink from "../components/social_media_link";
 import ButtonWrapper from "../components/sections/button_wrapper";
 import Separator from "../components/separator";
+import TableOfContents from "../components/tableOfContents";
 import Tag from "../components/tag";
 import configuration from "../../gatsby-config";
 // import Cursor from "../components/cursor";
@@ -61,6 +62,7 @@ storyblokInit({
     social_media_link: SocialMediaLink,
     button_wrapper: ButtonWrapper,
     separator: Separator,
+    tableOfContents: TableOfContents,
     tag: Tag,
     work_hero: WorkHero,
     contentSection: ContentSection,

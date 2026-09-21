@@ -1,18 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { storyblokEditable, StoryblokComponent } from "gatsby-source-storyblok";
 import clsx from "clsx";
-
 import { useTheme } from "@mui/material";
-import { useRef } from "react";
 import { useInView } from "framer-motion";
 
 import useWindowWidth from "../../hooks/useWindowWidth";
+
+// Helper to convert heading text to URL slug
+const slugify = (text) => {
+  return String(text)
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/[^\w\-]+/g, "")
+    .replace(/\-\-+/g, "-");
+};
 
 const ContentSection = ({ blok }) => {
   const [backgroundTheme, setBackgroundTheme] = useState();
   const [sectionTheme] = useState(blok.theme);
   const [isAnimated, setIsAnimated] = useState();
   const [onMobile, setOnMobile] = useState(false);
+  const [tocItems, setTocItems] = useState([]);
 
   const mainContent = true;
 
@@ -22,14 +31,13 @@ const ContentSection = ({ blok }) => {
   });
 
   let theme = useTheme();
-
   const windowWidth = useWindowWidth();
 
   useEffect(() => {
     if (windowWidth >= 800) {
       setOnMobile(true);
     }
-  }, []);
+  }, [windowWidth]);
 
   useEffect(() => {
     setBackgroundTheme(
@@ -42,19 +50,40 @@ const ContentSection = ({ blok }) => {
       opacity: isInView ? 1 : 0,
       transition: "all 1s ease-in-out",
     });
-  }, [isInView]);
+  }, [isInView, blok.theme, theme]);
 
+  // Extract all H3 headings across all components in blok.main
   useEffect(() => {
-    let parent = document.querySelector(".sticky").parentElement;
+    const extractedHeadings = [];
 
-    while (parent) {
-      const hasOverflow = getComputedStyle(parent).overflow;
-      if (hasOverflow !== "visible") {
-        console.log(hasOverflow, parent);
+    const traverse = (node) => {
+      if (!node) return;
+
+      // Match Storyblok rich text heading nodes of level 3
+      if (node.type === "heading" && node.attrs?.level === 2 || node.attrs?.level === 3) {
+        const text = node.content?.map((c) => c.text).join("") || "";
+        if (text) {
+          extractedHeadings.push({
+            level: node.attrs.level,
+            text,
+            id: slugify(text),
+          });
+        }
       }
-      parent = parent.parentElement;
+      // Check for arrays or nested objects
+      if (Array.isArray(node)) {
+        node.forEach(traverse);
+      } else if (typeof node === "object") {
+        Object.keys(node).forEach((key) => traverse(node[key]));
+      }
+    };
+
+    if (blok.main) {
+      traverse(blok.main);
+      setTocItems(extractedHeadings);
     }
-  }, []);
+  }, [blok.main]);
+
   return (
     <section
       {...storyblokEditable(blok)}
@@ -76,9 +105,10 @@ const ContentSection = ({ blok }) => {
           "max-lg:col-full max-sm:col-full"
         )}
       >
-        {blok.main.map((blok) => (
+        {blok.main.map((blokItem) => (
           <StoryblokComponent
-            blok={blok}
+            key={blokItem._uid}
+            blok={blokItem}
             backgroundTheme={backgroundTheme}
             sectionTheme={sectionTheme}
             isInView={isInView}
@@ -86,13 +116,31 @@ const ContentSection = ({ blok }) => {
           />
         ))}
       </div>
+
+      {/* Sticky Side Bar / TOC Column */}
       <div className={clsx("col-sixth", onMobile ? "block" : "hidden")}>
-        <div className={clsx("sticky top-20")}>
-          <div className={clsx("")}>
-            {blok.side_content.map((blok) => (
-              <StoryblokComponent blok={blok} sectionTheme={sectionTheme} />
+        <div className={clsx("sticky top-20 flex flex-col gap-6")}>
+          {/* Section-level Table of Contents */}
+          {/* <TableOfContents items={tocItems} /> */}
+          {blok.side_content?.map((blokItem) => (
+            <StoryblokComponent
+              key={blokItem._uid}
+              blok={blokItem}
+              sectionTheme={sectionTheme}
+              items={tocItems}
+            />
+          ))}
+
+          {/* Additional Side Content from Storyblok */}
+          {/* <div>
+            {blok.side_content?.map((blokItem) => (
+              <StoryblokComponent
+                key={blokItem._uid}
+                blok={blokItem}
+                sectionTheme={sectionTheme}
+              />
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

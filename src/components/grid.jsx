@@ -76,7 +76,7 @@ const Grid = ({ blok, sectionTheme }) => {
             className=
             {clsx(
               "flex absolute top-4 right-4 gap-x-4 z-30 p-2 bg-black text-white border border-white",
-              "hover:bg-black hover:text-white hover:border-accent hover:border-2"
+              "hover:bg-black hover:text-white hover:border-accent"
             )}
             aria-label="Close modal"
           >
@@ -89,7 +89,7 @@ const Grid = ({ blok, sectionTheme }) => {
           {images.length > 1 && (
             <button
               onClick={handlePrev}
-              className="absolute left-2 p-4 gap-x-4  bg-black text-white border border-white"
+              className="absolute left-2 p-4 gap-x-4  bg-black text-white border border-white hover:bg-black hover:text-white hover:border-accent"
               aria-label="Previous image"
             >
               <span className={clsx("h-6 w-6 flex items-center justify-middle")}>
@@ -109,10 +109,10 @@ const Grid = ({ blok, sectionTheme }) => {
           {images.length > 1 && (
             <button
               onClick={handleNext}
-              className="absolute right-2 p-4 gap-x-4  bg-black text-white border border-white"
+              className="absolute right-2 p-4 gap-x-4  bg-black text-white border border-white hover:bg-black hover:text-white hover:border-accent"
               aria-label="Next image"
             >
-              <span className={clsx("h-6 w-6 flex items-center justify-middle")}>
+              <span className={clsx("h-6 w-6 flex items-center justify-middle cursor-pointer")}>
                 <ChevronRight />
               </span>
             </button>
