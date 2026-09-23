@@ -1020,7 +1020,7 @@ type Query_storyblokEntryArgs = {
   group_id: InputMaybe<StringQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
-  internalId: InputMaybe<IntQueryOperatorInput>;
+  internalId: InputMaybe<FloatQueryOperatorInput>;
   is_startpage: InputMaybe<BooleanQueryOperatorInput>;
   lang: InputMaybe<StringQueryOperatorInput>;
   name: InputMaybe<StringQueryOperatorInput>;
@@ -1828,7 +1828,7 @@ type StoryblokEntry = Node & {
   readonly group_id: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
   readonly internal: Internal;
-  readonly internalId: Maybe<Scalars['Int']>;
+  readonly internalId: Maybe<Scalars['Float']>;
   readonly is_startpage: Maybe<Scalars['Boolean']>;
   readonly lang: Maybe<Scalars['String']>;
   readonly name: Maybe<Scalars['String']>;
@@ -1960,7 +1960,7 @@ type StoryblokEntryFilterInput = {
   readonly group_id: InputMaybe<StringQueryOperatorInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
-  readonly internalId: InputMaybe<IntQueryOperatorInput>;
+  readonly internalId: InputMaybe<FloatQueryOperatorInput>;
   readonly is_startpage: InputMaybe<BooleanQueryOperatorInput>;
   readonly lang: InputMaybe<StringQueryOperatorInput>;
   readonly name: InputMaybe<StringQueryOperatorInput>;

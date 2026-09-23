@@ -100,10 +100,10 @@ const Hero: React.FC<HeroProps> = ({ blok, sectionTheme }) => {
         {/* <Sparkle className={clsx('stars', 'absolute w-[4rem]', 'right-[20%] top-[16%]')} /> */}
 
         <div className={clsx("grid place-items-center min-h-[100vh] m-0 max-w-[1120px]")}>
-          <div className={clsx("content")}>
+          <div className={clsx("content flex flex-col justify-center items-center")}>
             <h3>Craig Mann</h3>
             {/* <h1 style={shadowStyle}>{'Design'}</h1> */}
-            {/* <h1 style={shadowStyle}>{blok.h1}</h1> */}
+            {blok?.h1 && <h1 style={shadowStyle}>{blok?.h1}</h1>}
             {blok.animated_title && <h1 style={shadowStyle}>
               <RandomReveal
                 isPlaying={true}
