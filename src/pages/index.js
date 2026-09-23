@@ -52,6 +52,7 @@ export const Head = () => (
   <>
     <title>{"Craig Mann Designs"}</title>
     <meta name="Craig Mann Designs" content="My work portfolio" />
+    <meta name="facebook-domain-verification" content="zcrn973uqyyv9dwejbpm2l2cetnanf" />
   </>
 );
 
