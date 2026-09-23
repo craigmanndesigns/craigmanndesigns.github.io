@@ -6,13 +6,14 @@ import InstaGrid from "./insta_grid";
 const InstaFeed = ({ blok }) => {
   const [instaItems, setInstaItems] = useState([]);
 
-  const userId = "809994050640964";
-  const accessToken = process.env.REACT_APP_INSTA_ACCESS_CODE;
-  const instaUrl = `https://graph.instagram.com/${userId}/media?access_token=${accessToken}`;
+  const userId = process.env.GATSBY_INSTA_USER_ID;
+  const accessToken = process.env.GATSBY_INSTA_ACCESS_CODE;
+  const instaUrl = `https://graph.facebook.com/v21.0/${userId}/media?fields=id,caption,media_type,media_url&access_token=${accessToken}`;
+
 
   useEffect(() => {
     const fetchMedia = async (id) => {
-      const mediaUrl = `https://graph.instagram.com/${id}?access_token=${accessToken}&fields=media_url,permalink`;
+      const mediaUrl = `https://graph.facebook.com/v21.0/${userId}/media?fields=id,caption,media_type,media_url&access_token=${accessToken}`;
 
       const res = await fetch(mediaUrl);
       const json = await res.json();
@@ -48,7 +49,7 @@ const InstaFeed = ({ blok }) => {
       setInstaItems(fetchedItems);
     };
     doFetch();
-  }, [userId, accessToken, instaUrl]);
+  }, [userId, accessToken, instaUrl])
 
   return (
     <div {...storyblokEditable(blok)} key={blok._uid} className={clsx()}>
