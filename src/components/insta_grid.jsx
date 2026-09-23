@@ -3,7 +3,7 @@ import clsx from "clsx";
 
 const InstaGrid = ({ items }) => {
   if (items.length === 0) {
-    return <div>Meta is being mean</div>;
+    return <div>Feed isn't working, better to click the link above</div>;
   }
 
   return (
