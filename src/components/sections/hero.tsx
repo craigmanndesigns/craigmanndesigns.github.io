@@ -102,7 +102,8 @@ const Hero: React.FC<HeroProps> = ({ blok, sectionTheme }) => {
         <div className={clsx("grid place-items-center min-h-[100vh] m-0 max-w-[1120px]")}>
           <div className={clsx("content")}>
             <h3>Craig Mann</h3>
-            <h1 style={shadowStyle}>{blok.h1}</h1>
+            {/* <h1 style={shadowStyle}>{'Design'}</h1> */}
+            {/* <h1 style={shadowStyle}>{blok.h1}</h1> */}
             {blok.animated_title && <h1 style={shadowStyle}>
               <RandomReveal
                 isPlaying={true}
@@ -112,10 +113,10 @@ const Hero: React.FC<HeroProps> = ({ blok, sectionTheme }) => {
                 characters={" "}
                 characterSet={
                   [
-                    "Developer",
-                    "Designer",
-                    "Manager",
-                    "Systems",
+                    "Product designer",
+                    "Design engineer",
+                    "Design Manager",
+                    "Design Systems",
                   ]}
               />
             </h1>}
