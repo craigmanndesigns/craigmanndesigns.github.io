@@ -59,10 +59,15 @@ module.exports = {
       },
       borderColor: {
         accent: "#61E8D3",
+        tableDark: "rgba(27, 27, 27, .60)",
+        tableLight: "rgba(255, 255, 255, .60)",
       },
       backgroundColor: {
         "dark-slate": "#3b3b3b",
         "light-slate": "#b3b3b3",
+        tableLight: "rgba(255, 255, 255, .05)",
+        tableDark: "rgba(27, 27, 27, .05)",
+
       },
       colors: {
         white: "#fff",

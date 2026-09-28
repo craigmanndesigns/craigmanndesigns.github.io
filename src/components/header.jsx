@@ -64,33 +64,53 @@ const Header = ({ blok, isInView, mainContent, sectionTheme }) => {
     }
   }, [blok.alignment]);
 
-  // Attach IDs to H3 tags matching the slugify logic
+  // Options for storyblok-rich-text-react-renderer
   const richTextOptions = {
     nodeResolvers: {
       [NODE_HEADING]: (children, { level }) => {
         if (level === 2) {
           const textContent = getPlainText(children);
           const id = slugify(textContent);
-
-          return (
-            <h2 id={id} className="scroll-mt-24">
-              {children}
-            </h2>
-          );
+          return <h2 id={id} className="scroll-mt-24">{children}</h2>;
         }
         if (level === 3) {
           const textContent = getPlainText(children);
           const id = slugify(textContent);
-
-          return (
-            <h3 id={id} className="scroll-mt-24">
-              {children}
-            </h3>
-          );
+          return <h3 id={id} className="scroll-mt-24">{children}</h3>;
         }
         const Tag = `h${level}`;
         return <Tag>{children}</Tag>;
       },
+
+      // Table container ("type": "table")
+      table: (children) => (
+        <div className="overflow-x-auto my-6 w-full">
+          <table className={clsx("w-full border-collapse border text-left text-sm",
+            sectionTheme === "light" ? "border-tableDark" : " border-tableLight"
+          )}>
+            <tbody>{children}</tbody>
+          </table>
+        </div>
+      ),
+
+      // Table row ("type": "tableRow")
+      tableRow: (children) => (
+        <tr className="">{children}</tr>
+      ),
+
+      // Table cell ("type": "tableCell")
+      tableCell: (children) => (
+        <td className="p-2">{children}</td>
+      ),
+
+      // Table header ("type": "tableHeader")
+      tableHeader: (children) => (
+        <th className={clsx("p-2  border-b",
+          sectionTheme === "light" ? "bg-tableDark border-tableDark" : "bg-tableLight border-tableLight"
+        )}>
+          {children}
+        </th>
+      ),
     },
   };
 
