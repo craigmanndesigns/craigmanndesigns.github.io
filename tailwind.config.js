@@ -34,6 +34,7 @@ module.exports = {
       80: "75vw",
       full: "100%",
       scrollMob: "calc(100vw - 4rem)",
+      caption: "calc(100% - 1rem)",
     },
     minWidth: {
       50: "50%",
@@ -63,6 +64,7 @@ module.exports = {
         tableLight: "rgba(255, 255, 255, .60)",
       },
       backgroundColor: {
+        white: "#fff",
         "dark-slate": "#3b3b3b",
         "light-slate": "#b3b3b3",
         tableLight: "rgba(255, 255, 255, .05)",
