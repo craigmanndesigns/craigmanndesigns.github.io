@@ -110,7 +110,7 @@ const Grid = ({ blok, sectionTheme }) => {
           <div className="relative">
             <img src={currentURL} alt="Lightbox view" className="max-h-[95vh] max-w-full object-contain bg-white shadow-lg" />
             {caption && (
-              <div className="absolute w-full p-4 max-w-caption bg-white border text-center bottom-2 left-[50%] translate-x-[-50%]">
+              <div className="absolute w-full p-4 max-w-caption bg-[#1b1b1be6] text-white rounded-md border border-tableDark text-center bottom-2 left-[50%] translate-x-[-50%]">
                 {caption}
               </div>
             )}

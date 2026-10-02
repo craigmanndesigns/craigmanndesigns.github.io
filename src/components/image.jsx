@@ -42,7 +42,7 @@ const Image = ({
       {blok.image.filename && (
         <div className={clsx("p-2")}>
           <img src={blok.image.filename} className={clsx("width-full")}></img>
-          {caption && <div className="pt-2 text-center">
+          {caption && <div className="pt-2 text-sm text-center">
             {caption}
           </div>}
         </div>
