@@ -163,6 +163,14 @@ p {
   line-height: 2rem;
 }
 
+p a {
+  text-decoration: underline;
+}
+
+p a:hover {
+  text-decoration: none;
+}
+
 .content h3,
 .content h4,
 .content h5 {
